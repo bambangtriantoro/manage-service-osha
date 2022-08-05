@@ -1,0 +1,145 @@
+.hero {
+    position: relative;
+}
+
+.hero .carousel {
+    width: 100%;
+    height: 85vh;
+    margin-bottom: 50px;
+}
+
+.hero .carousel .row {
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hero .carousel .col > * {
+    margin-bottom: 10px;
+}
+
+.hero .carousel .carousel-item .carousel-img {
+    height: 85vh;
+}
+
+.hero .carousel .carousel-item:nth-of-type(1) .carousel-img {
+    background: linear-gradient(90deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.5) 35%, rgba(255,255,255,0.1) 55% ),url('../../assets/images/boxed-water-is-better-3iiyde9Zj8A-unsplash.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+.hero .carousel .carousel-item:nth-of-type(2) .carousel-img {
+    background: linear-gradient(90deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.5) 35%, rgba(255,255,255,0.1) 55% ),url('../../assets/images/boxed-water-is-better-PHQVYFgTerA-unsplash.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+.hero .carousel .carousel-item:nth-of-type(3) .carousel-img {
+    background: linear-gradient(90deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.5) 35%, rgba(255,255,255,0.1) 55% ),url(https://images.unsplash.com/photo-1626230734570-33658a195f5b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80);
+    background-position: center;
+    background-size: cover;
+}
+
+.hero .carousel .carousel-caption {
+    height: 100%;
+    color: rgb(29, 29, 29);
+    left: 10% !important;
+    right: 10% !important;
+}
+
+.hero .carousel .carousel-caption .col:first-of-type {
+    text-align: start;
+}
+
+.hero .carousel .carousel-caption .col:last-of-type {
+    align-self: flex-start;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.hero .carousel .carousel-caption h2 {
+    font-size: 50px;
+    font-weight:700;
+}
+
+.hero .hero-absolute-item form {
+    width: 60%;
+    margin: auto;
+}
+
+.hero .hero-absolute-item {
+    position: absolute;
+    top: 130px;
+    left: 50%;
+    right: 10%;
+}   
+
+@media screen and (min-width: 1400px) {
+    .hero .carousel-container {
+        height: 55vh;
+    }
+
+    .hero .carousel {
+        height: 55vh;
+    }
+
+    .hero .carousel .carousel-inner {
+        height: 55vh;
+    }
+
+    .hero .carousel .carousel-item {
+        height: 55vh;
+    }
+
+    .hero .carousel .carousel-item:nth-of-type(1) .carousel-img,
+    .hero .carousel .carousel-item:nth-of-type(2) .carousel-img,
+    .hero .carousel .carousel-item:nth-of-type(3) .carousel-img {
+        height: 55vh;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .hero .carousel-container {
+        height: 90vh;
+    }
+
+    .hero .carousel {
+        height: 70vh;
+    }
+
+    .hero .carousel .carousel-inner {
+        height: 90vh;
+    }
+
+    .hero .carousel .carousel-item {
+        height: 90vh;
+    }
+
+    .hero .carousel .carousel-item:nth-of-type(1) .carousel-img,
+    .hero .carousel .carousel-item:nth-of-type(2) .carousel-img,
+    .hero .carousel .carousel-item:nth-of-type(3) .carousel-img {
+        height: 70vh;
+    }
+
+    .hero .carousel .carousel-caption {
+        padding-bottom: 0;
+    }
+
+    .hero .carousel .carousel-caption .row {
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hero .carousel .carousel-caption .col:last-of-type {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        align-self: flex-end;
+    }
+
+    .hero .hero-absolute-item {
+        position: static;
+    }
+}
+
+

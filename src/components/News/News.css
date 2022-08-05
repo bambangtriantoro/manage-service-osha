@@ -1,0 +1,56 @@
+.news {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.news h2 {
+    font-size: 40px;
+    font-weight: 100;
+    margin-bottom: 40px;
+}
+
+.news .container .row .col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+}
+
+.news .container .row .col img {
+    width: 100%;
+    transition: 0.5s;
+}
+
+.news .container .row .col:hover img {
+    opacity: 0.5;
+    transition: 0.5s;
+}
+
+.news .container .row .col h5 {
+    font-weight: 600;
+    transition: 0.5s;
+}
+
+.news .container .row .col:hover h5 {
+    opacity: 0.5;
+    transition: 0.5s;
+}
+
+.news .container > a {
+    color: #292929;
+    text-align: center;
+    text-decoration: none;
+    font-style: italic;
+    display: inline-block;
+    width: 100%;
+    margin-top: 20px;
+    transition: 0.5s;
+}
+
+.news .container > a:hover {
+    color: #3b3b3b;
+    transform: scale(1.03);
+    transition: 0.5s;
+}

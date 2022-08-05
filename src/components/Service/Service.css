@@ -1,0 +1,38 @@
+.service {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.service h2 {
+    font-size: 40px;
+    font-weight: 100;
+    margin-bottom: 40px;
+}
+
+.service-list {
+    background-color: rgb(29, 29, 29);
+    color: #fbfbfb;
+    padding: 90px 10px;
+}
+
+.service-list .row .col {
+    text-align: center;
+}
+
+.service-list .row .col button {
+    background-color: #ff6600;
+    color: #fbfbfb;
+    padding: 5px 20px;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    width: 60%;
+    margin: 10px auto;
+    transition: 0.5s;
+}
+
+.service-list .row .col button:hover {
+    background-color: #fbfbfb;
+    color: #ff6600;
+    border: 1px solid #ff6600;
+    transition: 0.5s;
+}
