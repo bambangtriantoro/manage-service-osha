@@ -1,11 +1,10 @@
+import { useState } from 'react'
 import { Container, Nav, Navbar, NavDropdown, Row, Col } from 'react-bootstrap'
 import './NavigationBar.css'
-import LogoOsha from '../../assets/images/LOGO OSHA.png'
-import TitleOsha from '../../assets/images/TITLE OSHA.png'
-import { useState } from 'react'
+import { LogoOsha, TitleOsha, oranye, lemon, easybi, websiteSolution, mobileSolution, customSolution, biSolution, professionalService, itbootcamp } from './imports.js'
 
 const NavigationBar = () => {
-    const [dropdownImg, setDropdownImg] = useState('https://img.freepik.com/free-vector/human-hand-holding-mobile-phone_74855-6532.jpg?w=740&t=st=1659503041~exp=1659503641~hmac=bf49b961034434711b46b8f3808da09ddae0d699656c60052e0df02751714fd9');
+    const [dropdownImg, setDropdownImg] = useState(websiteSolution);
 
     return (
         <>
@@ -23,23 +22,39 @@ const NavigationBar = () => {
                             <NavDropdown title="Solutions & Services">
                                 <Row xs='1' sm='1' md='2'>
                                     <Col>
-                                        <NavDropdown.Item href="#" onMouseEnter={() => setDropdownImg('https://img.freepik.com/free-vector/human-hand-holding-mobile-phone_74855-6532.jpg?w=740&t=st=1659503041~exp=1659503641~hmac=bf49b961034434711b46b8f3808da09ddae0d699656c60052e0df02751714fd9')}>Solution One</NavDropdown.Item>
-                                        <NavDropdown.Item href="#" onMouseEnter={() => setDropdownImg('https://img.freepik.com/free-vector/monitor_53876-59944.jpg?w=740&t=st=1659504289~exp=1659504889~hmac=efb4c5a7e1eb16157bf7024c86541f2b0eddd1abd6f057a63ddb4edcfffa7401')}>Solution Two</NavDropdown.Item>
-                                        <NavDropdown.Item href="#" onMouseEnter={() => setDropdownImg('https://img.freepik.com/free-vector/big-data-center-server-room-rack-engineering-process-teamwork-computer-technology-cloud-storage_39422-1032.jpg?w=740&t=st=1659504313~exp=1659504913~hmac=40afd4536a652f5bef59ec95f5c67f6249bf5ab8540b1c755f11671080c2ece0')}>Solution Three</NavDropdown.Item>
-                                        <NavDropdown.Item href="#" onMouseEnter={() => setDropdownImg('https://img.freepik.com/free-vector/human-hand-holding-mobile-phone_74855-6532.jpg?w=740&t=st=1659503041~exp=1659503641~hmac=bf49b961034434711b46b8f3808da09ddae0d699656c60052e0df02751714fd9')}>Solution Four</NavDropdown.Item>
-                                        <NavDropdown.Item href="#" onMouseEnter={() => setDropdownImg('https://img.freepik.com/free-vector/monitor_53876-59944.jpg?w=740&t=st=1659504289~exp=1659504889~hmac=efb4c5a7e1eb16157bf7024c86541f2b0eddd1abd6f057a63ddb4edcfffa7401')}>Solution Five</NavDropdown.Item>
-                                        <NavDropdown.Item href="#" onMouseEnter={() => setDropdownImg('https://img.freepik.com/free-vector/big-data-center-server-room-rack-engineering-process-teamwork-computer-technology-cloud-storage_39422-1032.jpg?w=740&t=st=1659504313~exp=1659504913~hmac=40afd4536a652f5bef59ec95f5c67f6249bf5ab8540b1c755f11671080c2ece0')}>Solution Six</NavDropdown.Item>
-                                        <NavDropdown.Item href="#" onMouseEnter={() => setDropdownImg('https://img.freepik.com/free-vector/www-concept-illustration_114360-2143.jpg?w=740&t=st=1659504628~exp=1659505228~hmac=5c82987a542b1f17ff84beb46c1d572bec5a250a79631712310dd505b37fef38')}>Solution Seven</NavDropdown.Item>
-                                        <NavDropdown.Item href="#" onMouseEnter={() => setDropdownImg('https://img.freepik.com/free-vector/human-hand-holding-mobile-phone_74855-6532.jpg?w=740&t=st=1659503041~exp=1659503641~hmac=bf49b961034434711b46b8f3808da09ddae0d699656c60052e0df02751714fd9')}>Solution Eight</NavDropdown.Item>
-                                        <NavDropdown.Item href="#" onMouseEnter={() => setDropdownImg('https://img.freepik.com/free-vector/monitor_53876-59944.jpg?w=740&t=st=1659504289~exp=1659504889~hmac=efb4c5a7e1eb16157bf7024c86541f2b0eddd1abd6f057a63ddb4edcfffa7401')}>Solution Nine</NavDropdown.Item>
-                                        <NavDropdown.Item href="#" onMouseEnter={() => setDropdownImg('https://img.freepik.com/free-vector/big-data-center-server-room-rack-engineering-process-teamwork-computer-technology-cloud-storage_39422-1032.jpg?w=740&t=st=1659504313~exp=1659504913~hmac=40afd4536a652f5bef59ec95f5c67f6249bf5ab8540b1c755f11671080c2ece0')}>Solution Ten</NavDropdown.Item>
-                                        <NavDropdown.Item href="#" onMouseEnter={() => setDropdownImg('https://img.freepik.com/free-vector/human-hand-holding-mobile-phone_74855-6532.jpg?w=740&t=st=1659503041~exp=1659503641~hmac=bf49b961034434711b46b8f3808da09ddae0d699656c60052e0df02751714fd9')}>Solution  Eleven</NavDropdown.Item>
-                                        <NavDropdown.Item href="#" onMouseEnter={() => setDropdownImg('https://img.freepik.com/free-vector/monitor_53876-59944.jpg?w=740&t=st=1659504289~exp=1659504889~hmac=efb4c5a7e1eb16157bf7024c86541f2b0eddd1abd6f057a63ddb4edcfffa7401')}>Solution Twelve</NavDropdown.Item>
-                                        <NavDropdown.Item href="#" onMouseEnter={() => setDropdownImg('https://img.freepik.com/free-vector/big-data-center-server-room-rack-engineering-process-teamwork-computer-technology-cloud-storage_39422-1032.jpg?w=740&t=st=1659504313~exp=1659504913~hmac=40afd4536a652f5bef59ec95f5c67f6249bf5ab8540b1c755f11671080c2ece0')}>Solution Thirteen</NavDropdown.Item>
-                                        <NavDropdown.Item href="#" onMouseEnter={() => setDropdownImg('https://img.freepik.com/free-vector/www-concept-illustration_114360-2143.jpg?w=740&t=st=1659504628~exp=1659505228~hmac=5c82987a542b1f17ff84beb46c1d572bec5a250a79631712310dd505b37fef38')}>Solution Fourteen</NavDropdown.Item>
+                                        <NavDropdown.Item href="#" onMouseEnter={() => setDropdownImg(websiteSolution)}>
+                                            Website & Web Apps
+                                        </NavDropdown.Item>
+                                        <NavDropdown.Item href="#" onMouseEnter={() => setDropdownImg(mobileSolution)}>
+                                            Mobile Apps
+                                        </NavDropdown.Item>
+                                        <NavDropdown.Item href="#" onMouseEnter={() => setDropdownImg(customSolution)}>
+                                            Custom Apps
+                                        </NavDropdown.Item>
+                                        <NavDropdown.Item href="#" onMouseEnter={() => setDropdownImg(biSolution)}>
+                                            Business Intelligence
+                                        </NavDropdown.Item>
+                                        <NavDropdown.Item href="#" onMouseEnter={() => setDropdownImg('')}>
+                                            Simanis
+                                        </NavDropdown.Item>
+                                        <NavDropdown.Item href="#" onMouseEnter={() => setDropdownImg(oranye)}>
+                                            Oranye
+                                        </NavDropdown.Item>
+                                        <NavDropdown.Item href="#" onMouseEnter={() => setDropdownImg(lemon)}>
+                                            Lemon
+                                        </NavDropdown.Item>
+                                        <NavDropdown.Item href="#" onMouseEnter={() => setDropdownImg(easybi)}>
+                                            Easy BI
+                                        </NavDropdown.Item>
+                                        <NavDropdown.Item href="#" onMouseEnter={() => setDropdownImg(professionalService)}>
+                                            Professional Services
+                                        </NavDropdown.Item>
+                                        <NavDropdown.Item href="#" onMouseEnter={() => setDropdownImg(itbootcamp)}>
+                                            IT Bootcamp
+                                        </NavDropdown.Item>
                                     </Col>
                                     <Col className='d-flex justify-content-center align-items-center'>
-                                        <img src={dropdownImg} className='dropdown-img' alt='dropdown'/>
+                                        <img src={dropdownImg} className='dropdown-img' alt='dropdown image'/>
                                     </Col>   
                                 </Row>
                             </NavDropdown>

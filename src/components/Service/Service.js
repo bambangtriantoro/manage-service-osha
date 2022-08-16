@@ -2,7 +2,7 @@ import './Service.css'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Container, Row, Col } from 'react-bootstrap'
-import { FaUserTie, FaLaptop, FaServer } from "react-icons/fa";
+import { productSolution, projectSolution, manageService } from './imports.js'
 
 AOS.init({
     once: true,
@@ -18,18 +18,18 @@ const Service = () => {
                     <Container>
                         <Row xs='1' md='3' className='g-3'>
                             <Col data-aos='fade-up'>
-                                <FaUserTie  size={70} className='mb-3' />
-                                <h4 className='mb-5'>IT Professional Service</h4>
+                                <img src={productSolution} width={70} className='mb-3' />
+                                <h4 className='mb-5'>Product Solutions</h4>
                                 <button>More Detail</button>
                             </Col>
                             <Col data-aos='fade-up' data-aos-delay='300'>
-                                <FaLaptop size={70} className='mb-3' />
-                                <h4 className='mb-5'>IT Custom Development</h4>
+                                <img src={projectSolution} width={70} className='mb-3' />
+                                <h4 className='mb-5'>Project Solutions</h4>
                                 <button>More Detail</button>
                             </Col>
                             <Col data-aos='fade-up' data-aos-delay='600'>
-                                <FaServer size={70} className='mb-3' />
-                                <h4 className='mb-5'>Middleware</h4>
+                                <img src={manageService} width={70} className='mb-3' />
+                                <h4 className='mb-5'>Manage Services</h4>
                                 <button>More Detail</button>
                             </Col>
                         </Row>

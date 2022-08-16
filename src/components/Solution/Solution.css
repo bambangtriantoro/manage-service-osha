@@ -17,8 +17,8 @@
   
 .solution .image {
     display: block;
-    width: 100%;
-    height: auto;
+    width: 361px;
+    height: 241px;
 }
   
 .solution .overlay {
@@ -37,7 +37,7 @@
     justify-content: center;
     align-items: center;
     color: white;
-    transition: 1s ease;
+    transition: 0.9s ease;
 }
 
 .solution .overlay h5 {
@@ -54,7 +54,7 @@
     background: rgba(0, 0, 0, 0.5);
     max-height: 100%;
     margin-top: auto;   
-    transition: 1s;
+    transition: 0.9s;
 }
 
 .solution .img-container:hover .overlay p{

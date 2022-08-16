@@ -19,7 +19,7 @@
 }
 
 .navbar .nav-link {
-    padding: 10px 15px;
+    padding: 10px 15px !important;
 }
 
 .navbar .dropdown-menu {
@@ -44,7 +44,6 @@
 
 .navbar .dropdown .dropdown-img {
     width: 200px;
-    height: 200px;
     margin: auto;
 }
 
