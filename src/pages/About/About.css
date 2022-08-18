@@ -1,0 +1,140 @@
+.about-us {
+    padding: 30px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.5) 100%),url(https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80);
+    background-size: cover;
+    background-position: center;
+    height: 550px;
+}
+
+.about-us .row {
+    justify-content: space-between;
+    align-items: center;
+    height: 500px;
+}
+
+.about-us .col:last-of-type {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.about-us h1 {
+    color: #FF7A00;
+    font-weight: 800;
+    margin: 10px 0;
+}
+
+.about-us p {
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.about-us img {
+    width: 300px;
+}
+
+.whoweare h2, .whereweare h2 {
+    margin: 30px;
+}
+
+.whoweare h2 {
+    position: absolute;
+    color: #ffffff63 !important;
+    margin: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    font-size: 40px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.whoweare .row {
+    position: relative;
+    background-color: #212529 ;
+    padding: 100px 0;
+}
+
+.whoweare .col {
+    height: 270px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 30px;
+    color: #fbfbfb;
+}
+
+.whoweare .col .img-container {
+    background-color: #FF7A00;
+    border-radius: 50%;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.whoweare .col p {
+    font-size: 18px;
+    text-align: center;
+}
+
+.visionmission {
+    text-align: center;
+    margin: 150px 0;
+}
+
+.visionmission p {
+    font-size: 18px;
+}
+
+.visionmission span {
+    font-weight: 700;
+}
+
+.visionmission img {
+    margin-bottom: 50px;
+}
+
+.whereweare {
+    margin-top: 100px;
+    margin-bottom: 0;
+    padding: 100px;
+    padding-top: 0;
+    background-color: #fffcef;
+}
+
+.whereweare h2 {
+    color: #ff9a3b !important;
+    margin: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    font-size: 40px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.whereweare .row {
+    justify-content: center;
+    align-items: center;
+}
+
+.whereweare .location h5 {
+    margin-bottom: 15px;
+    font-weight: 800;
+}
+
+.whereweare .location p {
+    color: #212529;
+    font-size: 18px;
+    border-left: 3px solid #FF7A00;
+    padding: 10px;
+    padding-left: 20px;
+    margin-left: 13px;
+}
+
+.whereweare .location i {
+    color: #FF7A00;
+}

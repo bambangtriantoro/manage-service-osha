@@ -1,0 +1,24 @@
+.btn.btn-primary {
+    background-color: #FF7A00;
+    color: #fbfbfb;
+    border: 1px solid transparent;
+    transition: 0.5s;
+}
+
+.btn.btn-primary:hover {
+    background-color: #fbfbfb;
+    color: #FF7A00;
+    border: 1px solid #FF7A00;
+    transition: 0.5s;
+}
+
+.btn.btn-dark:hover {
+    background-color: #fbfbfb;
+    color: #252525;
+    border: 1px solid  #252525;
+    transition: 0.5s;
+}
+
+section h2 {
+    color: #ff5e00 !important;
+}

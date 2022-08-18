@@ -1,5 +1,6 @@
 import LogoOsha from '../../assets/images/LOGO OSHA.png'
 import TitleOsha from '../../assets/images/TITLE OSHA.png'
+import LogoOshaFull from '../../assets/images/LOGO OSHA FULL ORANGE.png'
 import oranye from '../../assets/images/oranye.png'
 import lemon from '../../assets/images/lemon.png'
 import easybi from '../../assets/images/easybi.png'
@@ -13,6 +14,7 @@ import itbootcamp from '../../assets/images/Happy student-pana.png'
 export {
     LogoOsha,
     TitleOsha,
+    LogoOshaFull,
     oranye,
     lemon,
     easybi,

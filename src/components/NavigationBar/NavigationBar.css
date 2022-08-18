@@ -47,6 +47,16 @@
     margin: auto;
 }
 
+.navbar .linkto {
+    color: inherit;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.navbar .dropdown .linkto {
+    color: #414141;
+}
+
 @media screen and (max-width:996px) {
     .navbar .dropdown-menu {
         width: 100%;
