@@ -1,0 +1,16 @@
+.visionmission {
+    text-align: center;
+    margin: 150px 0;
+}
+
+.visionmission p {
+    font-size: 18px;
+}
+
+.visionmission span {
+    font-weight: 700;
+}
+
+.visionmission img {
+    margin-bottom: 50px;
+}

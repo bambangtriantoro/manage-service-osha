@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { About } from "./pages/index"
+import { About, WebSolution, MobileSolution, CustomSolution, BusinessIntelligence, ProductSolution, SimanisApp, OranyeApp, LemonApp, EasybiApp, ManageService } from "./pages/index"
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -12,6 +12,16 @@ root.render(
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="/about" element={<About />} />
+      <Route path="/websolution" element={<WebSolution />} />
+      <Route path="/mobilesolution" element={<MobileSolution />} />
+      <Route path="/customsolution" element={<CustomSolution />} />
+      <Route path="/bisolution" element={<BusinessIntelligence />} />
+      <Route path="/productsolution" element={<ProductSolution />} />
+      <Route path="/simanisapp" element={<SimanisApp />} />
+      <Route path="/oranyeapp" element={<OranyeApp />} />
+      <Route path="/lemonapp" element={<LemonApp />} />
+      <Route path="/easybiapp" element={<EasybiApp />} />
+      <Route path="/manageservice" element={<ManageService />} />
     </Routes>
   </BrowserRouter>
 );

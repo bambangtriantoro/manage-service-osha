@@ -1,0 +1,44 @@
+.whoweare h2, .whereweare h2 {
+    margin: 30px;
+}
+
+.whoweare h2 {
+    position: absolute;
+    color: #ffffff63 !important;
+    margin: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    font-size: 40px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.whoweare .row {
+    position: relative;
+    background-color: #212529 ;
+    padding: 100px 0;
+}
+
+.whoweare .col {
+    height: 270px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 30px;
+    color: #fbfbfb;
+}
+
+.whoweare .col .img-container {
+    background-color: #FF7A00;
+    border-radius: 50%;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.whoweare .col p {
+    font-size: 18px;
+    text-align: center;
+}

@@ -1,0 +1,29 @@
+/* #FF7A00 */
+.contact {
+    background: #fff;
+    padding-top: 60px;
+    padding-bottom: 100px;
+}
+
+.contact h2 {
+    font-weight: 700;
+}
+
+.contact p {
+    margin: 0;
+}
+
+.contact h2, .contact p {
+    text-align: center;
+}
+
+.contact .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact .form .form-control {
+    width: 600px;
+}

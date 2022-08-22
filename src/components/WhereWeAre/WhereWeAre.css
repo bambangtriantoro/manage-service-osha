@@ -1,0 +1,43 @@
+.whereweare {
+    margin-top: 100px;
+    margin-bottom: 0;
+    padding: 100px;
+    padding-top: 0;
+    background-color: #fffcef;
+}
+
+.whereweare h2 {
+    color: #ff9a3b !important;
+    margin: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    font-size: 40px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.whereweare .row {
+    justify-content: center;
+    align-items: center;
+}
+
+.whereweare .location h5 {
+    margin-bottom: 15px;
+    font-weight: 800;
+}
+
+.whereweare .location p {
+    color: #212529;
+    font-size: 18px;
+    border-left: 3px solid #FF7A00;
+    padding: 10px;
+    padding-left: 20px;
+    margin-left: 13px;
+}
+
+.whereweare .location i {
+    color: #FF7A00;
+}

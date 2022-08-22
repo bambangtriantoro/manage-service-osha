@@ -57,6 +57,14 @@
     color: #414141;
 }
 
+.navbar .linkto.active {
+    color: #fff;
+}
+
+.navbar .dropdown .linkto.active {
+    color: #010101;
+}
+
 @media screen and (max-width:996px) {
     .navbar .dropdown-menu {
         width: 100%;

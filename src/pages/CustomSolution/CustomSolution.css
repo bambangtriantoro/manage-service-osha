@@ -1,0 +1,44 @@
+.custom {
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.6) 70%, rgba(255,255,255,0.3) 100%), url(https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=874&q=80);
+    background-size: cover;
+    background-position: center;
+    padding: 170px 0;
+}
+
+.custom h2 {
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.custom-illustration {
+    padding: 100px 0;
+}
+
+.custom-illustration .custom-list li {
+    font-size: 25px;
+    font-weight: 600;
+    margin: 20px 0;
+    color: #fe5000;
+}
+
+.custom-list {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+  
+.custom-list li {
+    padding-left: 1em;
+    text-indent: -1em;
+}
+  
+.custom-list li:before {
+    content: '\2713';
+    padding-right: 30px;
+}
+
+.custom-illustration {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    margin-bottom: 30px;
+}

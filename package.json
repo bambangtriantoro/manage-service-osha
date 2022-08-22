@@ -1,5 +1,6 @@
 {
   "name": "osha-technology",
+  "homepage": "https://oshatechnology.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

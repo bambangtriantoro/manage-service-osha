@@ -1,0 +1,48 @@
+.website {
+    max-width: 100vw;
+    overflow: hidden;
+}
+
+.website h2 {
+    transform: translateX(-18px);
+}
+
+.website h2, .website h5 {
+    text-align: center;
+    font-weight: 700;
+}
+
+.website .col {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 100px 0;
+}
+
+.website .col:first-of-type {
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.5) 100%),url(../../assets/images/websolution\ \(1\).jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.website .col:last-of-type {
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.5) 100%),url(../../assets/images/websolution\ \(2\).jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.website .react-icons {
+    color: #FF7A00;
+}
+
+.website ul {
+    max-width: 500px;
+    margin-top: 30px;
+}
+
+.website ul li {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}

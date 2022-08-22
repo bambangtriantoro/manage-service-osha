@@ -1,0 +1,36 @@
+.business-intelligence {
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.6) 70%, rgba(255,255,255,0.3) 100%), url(https://images.unsplash.com/photo-1580983559367-0dc2f8934365?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80);
+    background-size: cover;
+    background-position: center;
+    padding: 170px 0;
+}
+
+.business-intelligence h2 {
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.bi-illustration {
+    padding: 100px 0;
+}
+
+.bi-illustration .container {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.bi-illustration1 {
+    padding: 100px 0;
+    background: #F2F3F2;
+}
+
+.bi-illustration1 .custom-list {
+    font-size: 30px;
+    color: #fe5000;
+}
+
+.bi-illustration1 .custom-list li {
+    margin: 30px 0;
+}

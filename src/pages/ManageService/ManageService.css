@@ -1,0 +1,39 @@
+.manage-service {
+    padding: 140px 0;
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.6) 80%, rgba(255,255,255,0.3) 100%), url(https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80);
+    background-size: cover;
+    background-position: center;
+}
+
+.manage-service .img-container-mng.green {
+    background-color: #ff8a1c;
+}
+
+.manage-service .img-container-mng.orange {
+    background-color: #ff8a1c;
+}
+
+.manage-service .img-container-mng {
+    padding: 10px;
+}
+
+.manage-service .img-container-mng {
+    padding: 10px;
+}
+
+.manage-service .img-container-mng img {
+    width: 150px;
+    height: 150px;
+}
+
+.manage-service .manage-service-list {
+    text-align: center;
+}
+
+.manage-service .manage-service-list h6 {
+    margin: 10px;
+}
+
+.manage-service .text-orange {
+    color: #FF5E00;
+}

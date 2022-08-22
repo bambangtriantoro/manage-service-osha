@@ -1,0 +1,34 @@
+.about-us {
+    padding: 30px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.5) 100%),url(https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80);
+    background-size: cover;
+    background-position: center;
+    height: 550px;
+}
+
+.about-us .row {
+    justify-content: space-between;
+    align-items: center;
+    height: 500px;
+}
+
+.about-us .col:last-of-type {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.about-us h1 {
+    color: #FF7A00;
+    font-weight: 800;
+    margin: 10px 0;
+}
+
+.about-us p {
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.about-us img {
+    width: 300px;
+}

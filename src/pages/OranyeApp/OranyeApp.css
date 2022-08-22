@@ -1,0 +1,17 @@
+.oranye-app {
+    padding: 130px 0;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(https://images.unsplash.com/photo-1591206369811-4eeb2f03bc95?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80);
+    background-size: cover;
+    background-position: center;
+}
+
+.oranye-app h2 {
+    font-size: 50px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.oranye-app p {
+    margin: 0;
+    font-size: 20px;
+}
