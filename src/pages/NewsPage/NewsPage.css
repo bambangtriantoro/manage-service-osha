@@ -1,0 +1,37 @@
+.the-news{
+    background: linear-gradient(90deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0.1) 100%), url(https://images.unsplash.com/photo-1546422904-90eab23c3d7e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872&q=80);
+    background-size: cover;
+    background-position: center;
+}
+
+.the-news h2 {
+    font-size: 70px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.the-news p {
+    font-size: 18px;
+    text-align: center;
+}
+
+.the-news-list {
+    padding: 100px 0;
+    padding-top: 30px;
+}
+
+.the-news-list h2 {
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+.the-news-list a{
+    text-decoration: none;
+    color: #ff5100;
+    transition: 0.3s;
+}
+
+.the-news-list a:hover {
+    color: #ff9900;
+    transition: 0.3s;
+}

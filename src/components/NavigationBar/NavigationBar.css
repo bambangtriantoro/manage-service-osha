@@ -15,7 +15,7 @@
 }
 
 .navbar-collapse {
-    justify-content: end;
+    justify-content: end;   
 }
 
 .navbar .nav-link {
@@ -55,14 +55,33 @@
 
 .navbar .dropdown .linkto {
     color: #414141;
+    transition: 0.3s;
 }
 
 .navbar .linkto.active {
     color: #fff;
 }
 
+.navbar .dropdown .linkto:hover {
+    color: #010101;
+    transition: 0.3s;
+}
+
 .navbar .dropdown .linkto.active {
     color: #010101;
+}
+
+.navbar .nav-link:hover {
+    cursor: default;
+}
+
+.navbar .dropdown-toggle {
+    cursor: pointer;
+}
+
+.navbar .dropdown-item:hover {
+    background-color: transparent !important;
+    cursor: default;
 }
 
 @media screen and (max-width:996px) {

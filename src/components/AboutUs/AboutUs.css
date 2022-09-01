@@ -23,12 +23,31 @@
     margin: 10px 0;
 }
 
-.about-us p {
-    margin: 10px 0;
+.about-us span {
     font-size: 18px;
     font-weight: 700;
 }
 
+.about-us p {
+    margin-top: 10px;
+}
+
 .about-us img {
     width: 300px;
+}
+
+@media screen and (max-width:768px){
+    .about-us {
+        height: auto;
+        padding: 30px;
+    }
+
+    .about-us .row { 
+        height: auto;
+        padding: 30px 0;
+    }
+
+    .about-us p {
+        text-align: justify;
+    }
 }

@@ -18,12 +18,43 @@
 }
 
 .contact .form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    padding-top: 30px;
 }
 
-.contact .form .form-control {
-    width: 600px;
+.contact .row {
+    margin: 0;
+}
+
+.contact .row > * {
+    padding: 30px 100px;
+}
+
+.contact .col-contact-2 {
+    background-size: cover;
+    background-position: center;
+}
+
+.contact a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.contact a {
+    transition: 0.3s;
+}
+
+.contact a:hover {
+    opacity: 0.5;
+    transition: 0.3s;
+}
+
+.color-wa {
+    color: #00bb45;
+}
+
+@media screen and (max-width: 768px) {
+    .contact .row > *  {
+        padding: 0 30px;
+        margin-bottom: 50px;
+    }
 }

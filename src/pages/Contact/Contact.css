@@ -1,0 +1,38 @@
+.the-contact {
+    background: linear-gradient(90deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 70%, rgba(255,255,255,0.1) 100%), url(https://images.unsplash.com/photo-1587560699334-cc4ff634909a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80);
+    background-size: cover;
+    background-position: center;
+}
+
+.the-contact h2 {
+    text-align: center;
+    font-weight: 600;
+    font-size: 70px;
+}
+
+.the-contact p {
+    text-align: center;
+    font-size: 18px;
+}
+
+.the-contact-item .whereweare {
+    background-color: transparent;
+}
+
+.the-contact-item .contact {
+    padding-top: 100px;
+}
+
+.the-contact-item .contact p:first-of-type {
+    font-weight: 600;
+}
+
+@media screen and (max-width: 768px) {
+    .the-contact-item .whereweare {
+        padding-bottom: 30px;
+    }
+
+    .the-contact-item .contact {
+        padding-top: 30px;
+    }
+}

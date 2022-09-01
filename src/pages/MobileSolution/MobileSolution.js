@@ -2,7 +2,6 @@ import './MobileSolution.css'
 import React from 'react'
 import { ContactUs, Footer, NavigationBar } from '../../components'
 import { Container, Row, Col } from 'react-bootstrap'
-import { FaReact } from 'react-icons/fa'
 import { DiAndroid, DiApple } from 'react-icons/di'
 import { mobilePic } from './imports'
 
@@ -10,29 +9,19 @@ const MobileSolution = () => {
   return (
     <div>
         <NavigationBar />
-        <section className='mobile'>
+        <section className='mobile the-header'>
             <Container>
-                <Row>
+                <Row className='align-items-center gy-3'>
                     <Col md={7}>
-                        <h2>Mobile Solution</h2>
+                        <h2>Mobile Solutions</h2>
                         <p>Creating mobile apps for your business purpose, equipped with the latest technology. It is suitable tools to integrate your applications into the mobile technology.</p>
-                    </Col>
-                </Row>
-            </Container>
-        </section>
-        <section className='mobile-illustration'>
-            <Container>
-                <Row className='align-items-center'>
-                    <Col md={7}>
-                        <img src={mobilePic} alt='mobile lllustration'/>
+                        <Row className='justify-content-start align-items-center pt-3'>
+                            <Col xs='auto' sm='auto' md='auto'><DiAndroid size={30} /></Col>
+                            <Col xs='auto' sm='auto' md='auto'><DiApple size={30} /></Col>
+                        </Row>
                     </Col>
                     <Col md={5}>
-                        <h2>Platform</h2>
-                        <Row md={2} className='justify-content-center align-items-center'>
-                            <Col className='item-center'><DiAndroid size={70} /></Col>
-                            <Col className='item-center'><DiApple size={70} /></Col>
-                            <Col className='item-center'><FaReact size={70} /></Col>
-                        </Row>
+                        <img src={mobilePic} alt='mobile lllustration' className='w-100'/>
                     </Col>
                 </Row>
             </Container>

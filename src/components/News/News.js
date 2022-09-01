@@ -2,6 +2,7 @@ import './News.css'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Container, Row, Col } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 AOS.init({
     once: true,
@@ -31,7 +32,7 @@ const News = () => {
                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
                         </Col>
                     </Row>
-                    <a href='#news'>See All News</a>
+                    <Link to='/news'>See All News</Link>
                 </Container>
             </section>
         </>

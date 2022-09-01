@@ -17,7 +17,7 @@ const ProductSolution = () => {
         </section>
         <section className='product-list'>
             <Container>
-                <Row>
+                <Row xs={1} sm={2} md={4} className='gy-5'>
                     <Col>
                         <div className='img-container-prod'>
                             <img src={LogoOsha} alt='' className='w-75 mb-3' />

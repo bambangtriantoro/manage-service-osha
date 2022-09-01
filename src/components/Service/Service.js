@@ -1,7 +1,7 @@
 import './Service.css'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { Container, Row, Col, NavLink } from 'react-bootstrap'
+import { Container, Row, Col} from 'react-bootstrap'
 import { productSolution, projectSolution, manageService } from './imports.js'
 import { Link } from 'react-router-dom';
 
@@ -10,7 +10,7 @@ AOS.init({
     duration: 1000,
 });
 
-const Service = () => {
+const Service = (props) => {
     return (
         <>
             <section id="service" className="service">
@@ -23,7 +23,7 @@ const Service = () => {
                                 <h4 className='mb-5'>Product Solutions</h4>
                                 <Link to='/productsolution'><button>More Detail</button></Link>
                             </Col>
-                            <Col data-aos='fade-up' data-aos-delay='300'>
+                            <Col data-aos='fade-up' data-aos-delay='300' onClick={props.scrollToElement}>
                                 <img src={projectSolution} width={70} className='mb-3' alt='service 2' />
                                 <h4 className='mb-5'>Project Solutions</h4>
                                 <button>More Detail</button>

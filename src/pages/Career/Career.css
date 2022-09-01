@@ -1,0 +1,83 @@
+.career {
+    background: linear-gradient(90deg, rgba(255,255,255, 0.9) 0%, rgba(255,255,255, 0.7) 70%, rgba(255,255,255, 0.1) 100%), url(https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80);
+    background-size: cover;
+    background-position: center;
+}
+
+.career h2 {
+    font-size: 70px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.career p {
+    font-size: 20px;
+    text-align: center;
+}
+
+.career-list {
+    padding: 50px 0;
+}
+
+.career-list .card {
+    align-items: center;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    overflow: hidden;
+}
+
+.career-list .card-body {
+    width: 100%;
+    padding: 10px 0;
+    padding-bottom: 0;
+}
+
+.career-list .card-title {
+    color: #FF7A00;
+    text-align: center;
+}
+
+.career-list .card-title h3 {
+    font-weight: 700;
+}
+
+.career-list .card-text {
+    text-align: center;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+}
+
+.career-list .card-text button {
+    border: none;
+    width: 100%;
+    padding: 10px 0;
+    font-size: 18px;
+}
+
+.career-list .card-text button img {
+    margin-left: 10px;
+    transition: 0.3s;
+}
+
+.career-list .card-text button img.rotated {
+    transform: rotate(180deg);
+    transition: 0.3s;
+}
+
+.career-list .list-group-item {
+    padding-left: 2em;
+    text-indent: -2em;
+}
+
+.career-list .list-group-item:before {
+    content: '\2713';
+    height: 100%;
+    color: #ff5100;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.career-list .collapse button {
+    padding: 10px;
+    border-radius: 0;
+}

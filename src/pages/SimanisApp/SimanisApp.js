@@ -9,11 +9,11 @@ const SimanisApp = () => {
   return (
     <div>
         <NavigationBar />
-        <section className='simanis-app'>
+        <section className='simanis-app the-header'>
             <Container>
-                <Row className='justify-content-center align-items-center'>
-                    <Col md={5} className='app-desc'>
-                        <div className='d-flex gap-3'>
+                <Row className='justify-content-center align-items-center gy-3'>
+                    <Col md={4} className='app-desc'>
+                        <div className='d-flex flex-wrap gap-3'>
                             <img src={LogoOsha} alt='' width={100} />
                             <div>
                                 <h2>SIMANIS</h2>
@@ -21,7 +21,7 @@ const SimanisApp = () => {
                             </div>
                         </div>
                     </Col>
-                    <Col md={7} className='app-benefits'>
+                    <Col md={8} className='app-benefits'>
                         <img src={simanisBen} alt='simanis benefits' className='w-100'/>
                     </Col>
                 </Row>

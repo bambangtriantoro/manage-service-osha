@@ -9,11 +9,11 @@ const LemonApp = () => {
   return (
     <div>
         <NavigationBar />
-        <section className='lemon-app'>
+        <section className='lemon-app the-header'>
             <Container>
-                <Row className='justify-content-center align-items-center'>
-                    <Col md={5} className='app-desc'>
-                        <div className='d-flex gap-3'>
+                <Row className='justify-content-center align-items-center gy-3'>
+                    <Col md={4} className='app-desc'>
+                        <div className='d-flex flex-wrap gap-3'>
                             <img src={lemon} alt='' width={100} />
                             <div>
                                 <h2>Lemon</h2>
@@ -21,7 +21,7 @@ const LemonApp = () => {
                             </div>
                         </div>
                     </Col>
-                    <Col md={7} className='app-benefits'>
+                    <Col md={8} className='app-benefits'>
                         <img src={lemonBen} alt='lemon benefits' className='w-100'/>
                     </Col>
                 </Row>

@@ -14,7 +14,7 @@ const VisionMission = () => {
     <section className='visionmission'>
         <Container>
             <img src={LogoOsha} alt='logo' width='180' data-aos='flip-up'/>
-            <Row className='gap-5'>
+            <Row xs={1} sm={1} md={2} className='gy-5'>
                 <Col data-aos='zoom-in'>
                     <h2>our <span>VISION</span></h2>
                     <p>Making OSHA technology as the main choice of business partners for supporting information technology companies throughout Indonesia</p>

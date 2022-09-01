@@ -16,9 +16,9 @@ const WhereWeAre = () => {
     <section className='whereweare'>
         <h2 data-aos='fade-up' data-aos-delay='500'>WHERE WE ARE</h2>
         <Container>
-            <Row>
+            <Row xs={1} sm={1} md={2}>
                 <Col>
-                    <img src={indo} alt='map indo' className='image' data-aos='zoom-out'/>
+                    <img src={indo} alt='map indo' className='w-100' data-aos='zoom-out'/>
                 </Col>
                 <Col>
                     <div className='location'>

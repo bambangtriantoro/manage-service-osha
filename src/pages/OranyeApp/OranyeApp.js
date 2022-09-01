@@ -9,19 +9,19 @@ const OranyeApp = () => {
   return (
     <div>
         <NavigationBar />
-        <section className='oranye-app'>
+        <section className='oranye-app the-header'>
             <Container>
-                <Row className='justify-content-center align-items-center'>
-                    <Col md={5} className='app-desc'>
-                        <div className='d-flex gap-3'>
+                <Row className='justify-content-center align-items-center gy-3'>
+                    <Col md={4} className='app-desc'>
+                        <div className='d-flex flex-wrap gap-3'>
                             <img src={oranye} alt='' width={100} />
                             <div>
                                 <h2>Oranye</h2>
-                                <p>Human Resources Information System</p>
+                                <p>HR Information System</p>
                             </div>
                         </div>
                     </Col>
-                    <Col md={7} className='app-benefits'>
+                    <Col md={8} className='app-benefits'>
                         <img src={oranyeBen} alt='oranye benefits' className='w-100'/>
                     </Col>
                 </Row>

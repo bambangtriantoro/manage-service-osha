@@ -3,12 +3,14 @@ import { useState } from 'react'
 import { Container, Nav, Navbar, NavDropdown, Row, Col } from 'react-bootstrap'
 import { LogoOsha, TitleOsha, oranye, lemon, easybi, websiteSolution, mobileSolution, customSolution, biSolution, professionalService, itbootcamp } from './imports.js'
 import { NavLink } from "react-router-dom";
+// import Whatsapp from '../Whatsapp/Whatsapp';
 
 const NavigationBar = () => {
     const [dropdownImg, setDropdownImg] = useState(websiteSolution);
     
     return (
-        <>
+        <>  
+            {/* <Whatsapp /> */}
             <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
                 <Container>
                     <Navbar.Brand>
@@ -63,7 +65,7 @@ const NavigationBar = () => {
                             </NavDropdown>
                             <Nav.Link><NavLink className={({ isActive }) => isActive ? 'linkto active' : 'linkto'} to="/career">Career</NavLink></Nav.Link>
                             <Nav.Link><NavLink className={({ isActive }) => isActive ? 'linkto active' : 'linkto'} to="/news">News</NavLink></Nav.Link>
-                            <Nav.Link><NavLink className={({ isActive }) => isActive ? 'linkto active' : 'linkto'} to="/features">Features</NavLink></Nav.Link>
+                            <Nav.Link><NavLink className={({ isActive }) => isActive ? 'linkto active' : 'linkto'} to="/contact">Contact Us</NavLink></Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

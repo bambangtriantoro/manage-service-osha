@@ -17,8 +17,7 @@
   
 .solution .image {
     display: block;
-    width: 361px;
-    height: 241px;
+    width: 100%;
 }
   
 .solution .overlay {

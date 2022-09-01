@@ -9,23 +9,23 @@ const EasybiApp = () => {
   return (
     <div>
         <NavigationBar />
-        <section className='easybi-app'>
+        <section className='easybi-app the-header'>
             <Container>
-                <Row className='justify-content-center align-items-center'>
-                    <Col md={8} className='app-desc'>
-                        <div className='d-flex gap-3 align-items-center'>
-                            <img src={easybi} alt='' width={200} height={100} />
+                <Row className='justify-content-center align-items-center gy-5'>
+                    <Col xs={12} sm={12} md={8} className='app-desc'>
+                        <div className='d-flex flex-wrap gap-3 align-items-center'>
+                            <img src={easybi} alt='' width={150} height={70} />
                             <div>
                                 <h2>Easy BI</h2>
-                                <p>Dashboard Analytic and Monitoring</p>
-                                <p>
-                                    <b>Increase your business acceleration, efficient and accurate</b> <br/> 
+                                <p className='mb-2 fw-bold'>Dashboard Analytic and Monitoring</p>
+                                <p className='mb-2'>Increase your business acceleration, efficient and accurate</p>
+                                <p> 
                                     Start with your data to visualize and get your business information accurately,thus helping you in making business strategy decisions -EasyBI
                                 </p>
                             </div>
                         </div>
                     </Col>
-                    <Col md={4} className='app-benefits'>
+                    <Col xs={12} sm={12} md={4} className='app-benefits'>
                         <img src={easybiBen} alt='easybi benefits' className='w-100'/>
                     </Col>
                 </Row>
