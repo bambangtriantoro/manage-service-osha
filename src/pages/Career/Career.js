@@ -1,11 +1,13 @@
 import './Career.css'
 import React from 'react'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { Button, Container, Card, Row, Col, Collapse, ListGroup } from 'react-bootstrap'
 import { CareerForm, Footer, NavigationBar } from '../../components'
 import { FaReact, FaAngular, FaJava, FaRulerCombined } from 'react-icons/fa'
 import { SiGo } from 'react-icons/si'
 import { AiFillControl } from 'react-icons/ai'
+
+const scrollToCareerRef = (ref) => window.scrollTo(0, ref.current.offsetTop)  
 
 const Career = () => {
   const [open1, setOpen1] = useState(false);
@@ -14,6 +16,9 @@ const Career = () => {
   const [open4, setOpen4] = useState(false);
   const [open5, setOpen5] = useState(false);
   const [open6, setOpen6] = useState(false);
+
+  const careerRef = useRef(null)
+  const scrollToCareerElement = () => scrollToCareerRef(careerRef)
 
   return (
     <div>
@@ -55,7 +60,7 @@ const Career = () => {
                           <ListGroup.Item as='li'>You have practice object-oriented programming </ListGroup.Item>
                           <ListGroup.Item as='li'>Have passion to learn about something new </ListGroup.Item>
                         </ListGroup>
-                        <Button className='mt-3 w-100'>Apply</Button>
+                        <Button onClick={scrollToCareerElement} className='mt-3 w-100'>Apply</Button>
                       </div>
                     </Collapse>
                   </Card.Body>
@@ -85,7 +90,7 @@ const Career = () => {
                           <ListGroup.Item as='li'>You have practice object-oriented programming </ListGroup.Item>
                           <ListGroup.Item as='li'>Have passion to learn about something new </ListGroup.Item>
                         </ListGroup>
-                        <Button className='mt-3 w-100'>Apply</Button>
+                        <Button onClick={scrollToCareerElement} className='mt-3 w-100'>Apply</Button>
                       </div>
                     </Collapse>
                   </Card.Body>
@@ -115,7 +120,7 @@ const Career = () => {
                           <ListGroup.Item as='li'>Swagger or openAPI</ListGroup.Item>
                           <ListGroup.Item as='li'>Microservices or Quarkus</ListGroup.Item>
                         </ListGroup>
-                        <Button className='mt-3 w-100'>Apply</Button>
+                        <Button onClick={scrollToCareerElement} className='mt-3 w-100'>Apply</Button>
                       </div>
                     </Collapse>
                   </Card.Body>
@@ -145,7 +150,7 @@ const Career = () => {
                           <ListGroup.Item as='li'>Swagger or openAPI</ListGroup.Item>
                           <ListGroup.Item as='li'>Microservices</ListGroup.Item>
                         </ListGroup>
-                        <Button className='mt-3 w-100'>Apply</Button>
+                        <Button onClick={scrollToCareerElement} className='mt-3 w-100'>Apply</Button>
                       </div>
                     </Collapse>
                   </Card.Body>
@@ -172,7 +177,7 @@ const Career = () => {
                           <ListGroup.Item as='li'>Good knowledge in  Swagger or openAPI</ListGroup.Item>
                           <ListGroup.Item as='li'>Have worked in agile environment (Scrum, Kanban, Jira, Trello, ect) </ListGroup.Item>
                         </ListGroup>
-                        <Button className='mt-3 w-100'>Apply</Button>
+                        <Button onClick={scrollToCareerElement} className='mt-3 w-100'>Apply</Button>
                       </div>
                     </Collapse>
                   </Card.Body>
@@ -198,7 +203,7 @@ const Career = () => {
                           <ListGroup.Item as='li'>Ability to work under pressure</ListGroup.Item>
                           <ListGroup.Item as='li'>Prioritized with background from fintech & bank</ListGroup.Item>
                         </ListGroup>
-                        <Button className='mt-3 w-100'>Apply</Button>
+                        <Button onClick={scrollToCareerElement} className='mt-3 w-100'>Apply</Button>
                       </div>
                     </Collapse>
                   </Card.Body>
@@ -207,7 +212,7 @@ const Career = () => {
             </Row>
           </Container>
         </section>
-        <CareerForm />
+        <CareerForm careerRef={careerRef} />
         <Footer />
     </div>
   )

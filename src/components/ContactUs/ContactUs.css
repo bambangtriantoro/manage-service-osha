@@ -34,6 +34,10 @@
     background-position: center;
 }
 
+.contact .col-contact-2 .contact-img {
+    height: 305px;
+}
+
 .contact a {
     color: inherit;
     text-decoration: none;

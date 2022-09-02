@@ -1,9 +1,8 @@
 import './CareerForm.css'
 import React, { Component, useState } from 'react'
-import { Axios } from '../../config'
 import { Col, Container, Form, Row, Button } from 'react-bootstrap'
 import { saveAs } from 'file-saver'
-
+import { AxiosCustom } from '../../config'
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -22,8 +21,8 @@ class CareerForm extends Component {
   handleChange = ({target: {value,name}}) => this.setState({ [name]: value })
 
   createAndDownloadPdf = () => {
-    Axios.post('/create-pdf', this.state)
-    .then(() => Axios.get('fetch-pdf', {responseType: 'blob'}))
+    AxiosCustom.post('/create-pdf', this.state)
+    .then(() => AxiosCustom.get('fetch-pdf', {responseType: 'blob'}))
     .then((res) => {
       const pdfBlob = new Blob([res.data], { type:'application/pdf' })
       saveAs(pdfBlob, 'newPdf.pdf')
@@ -41,7 +40,6 @@ class CareerForm extends Component {
         year: "numeric"
       })
       const valueOfInput = formattedDate;
-      alert('what the hell?'+ valueOfInput)
       this.setState({ birthDate: valueOfInput })
     };
 
@@ -66,7 +64,7 @@ class CareerForm extends Component {
   render() {
     return (
       <div>
-        <section className='career-form'>      
+        <section className='career-form'  ref={this.props.careerRef}>      
           <Container>
             <h2>Registration Form</h2>
             <Form>

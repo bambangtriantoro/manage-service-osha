@@ -4,6 +4,7 @@ import { Footer, NavigationBar } from '../../components'
 import { Container, Row, Col, Form, Button } from 'react-bootstrap'
 import { indo } from './imports'
 import { HiOutlineLocationMarker } from 'react-icons/hi'
+import { RiWhatsappLine } from 'react-icons/ri'
 
 const Contact = () => {
   return (
@@ -38,8 +39,10 @@ const Contact = () => {
 
               <Col className='contact'>
                 <p>Send Us Message</p>
-                <p>+62 888 888 888</p>
-                <Row className='justify-content-center align-items-center gy-5'>
+                <a rel='noreferrer' href="https://wa.me/6287817700088?text=Halo%20Admin" target="_blank" className='item-center contact-wa'>          
+                  <p className='color-wa mt-3'><RiWhatsappLine color='#00bb45' size={30} /> Message via Whatsapp</p>
+                </a>
+                <Row className='justify-content-center align-items-center'>
                     <Col xs={12} sm={12} md={12}>
                         <div className='form'>
                             <Form>

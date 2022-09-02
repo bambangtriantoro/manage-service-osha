@@ -10,13 +10,9 @@ const ProductSolution = () => {
   return (
     <div>
         <NavigationBar />
-        <section className='product-solution'>
-            <Container>
-                <h2>Product Solutions</h2>
-            </Container>
-        </section>
         <section className='product-list'>
             <Container>
+                <h2>Product Solutions</h2>
                 <Row xs={1} sm={2} md={4} className='gy-5'>
                     <Col>
                         <div className='img-container-prod'>

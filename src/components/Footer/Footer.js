@@ -9,9 +9,9 @@ const Footer = () => {
                 <Container fluid>
                     <Row xs='1' sm='1' md='2' className='g-5'>
                         <Col>
-                            <p>Copyright &copy; 2022 by OSHA Technology</p>
+                            <p>Copyright &copy; 2022 by PT OSHA Teknologi Indonesia</p>
                         </Col>
-                        <Col className="d-flex">
+                        <Col className="d-flex">    
                             <p>Follow Us</p>
                             <div className='d-flex align-items-center gap-3'>
                                 <a target='_blank' rel="noreferrer" href='https://www.facebook.com/profile.php?id=100082695342982'><FaFacebook size={20}/></a>

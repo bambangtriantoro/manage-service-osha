@@ -1,17 +1,21 @@
-.product-solution h2 {
-    font-size: 50px;
-    font-weight: 700;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    text-align: center;
-}
 
 .product-list {
     align-items: center;
     text-align: center;
     padding: 100px 0;
+    padding-top: 20px;
+    background: url('../../assets/images/product-background.png');
+    background-size: cover;
+    background-position: center;
 }
 
+.product-list h2 {
+    font-size: 50px;
+    font-weight: 700;
+    margin-top: 30px;
+    margin-bottom: 60px;
+    text-align: center;
+}
 .product-list .img-container-prod {
     display: flex;
     justify-content: center;

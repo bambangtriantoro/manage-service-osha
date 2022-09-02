@@ -27,6 +27,10 @@
     font-weight: 600;
 }
 
+.contact-wa {
+    transform: translateX(-10px);
+}
+
 @media screen and (max-width: 768px) {
     .the-contact-item .whereweare {
         padding-bottom: 30px;

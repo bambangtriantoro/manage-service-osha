@@ -12,7 +12,7 @@ const API_URL = isLocalhost
         ? "http://localhost:5000"
         : "https://server.oshatechnology.com"
 
-export const Axios = axios.create({
-    withCredentials: true,
-    base_url: API_URL
+export const AxiosCustom = axios.create({
+    withCredentials: false,
+    baseURL: API_URL
 })

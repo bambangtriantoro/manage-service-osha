@@ -48,7 +48,7 @@ const ContactUs = () => {
                             </a>
                         </div>
                         <div className='item-center'>
-                            <img src={contactImg} alt='' className='w-75' />
+                            <img src={contactImg} alt='' className='contact-img'/>
                         </div>
                     </div>
                 </Col>
