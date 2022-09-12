@@ -20,19 +20,19 @@ const ManageService = () => {
                     <Col xs={12} sm={12} md={5}>
                         <h4 className='text-center text-orange mb-3'>Manage Services Type</h4>
                         <div className='d-flex flex-wrap gap-5 justify-content-center align-items-center'>
-                            <div className='manage-service-list'>
-                                <div className='img-container-mng green d-flex justify-content-center align-items-center rounded-4'>
+                            <div className='manage-service-list '>
+                                <div className='img-container-mng red d-flex justify-content-center align-items-center rounded-4'>
                                     <img src={proService} alt='' />
                                 </div>
                                 <h6>Professional Services</h6>
-                                <Link to='/proservices'><Button>Detail</Button></Link>
+                                <Link to='/proservices'><Button className='red'>Detail</Button></Link>
                             </div>
                             <div className='manage-service-list'>
-                                <div className='img-container-mng orange d-flex justify-content-center align-items-center rounded-4'>
+                                <div className='img-container-mng green d-flex justify-content-center align-items-center rounded-4'>
                                     <img src={itBootcamp} alt='' />
                                 </div>
                                 <h6>IT Bootcamp</h6>
-                                <Link to='/itbootcamp'><Button>Detail</Button></Link>
+                                <Link to='/itbootcamp'><Button className='green'>Detail</Button></Link>
                             </div>
                         </div>
                     </Col>

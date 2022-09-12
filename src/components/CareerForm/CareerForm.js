@@ -1,4 +1,4 @@
-import './CareerForm.css'
+import './CareerForm.css' 
 import React, { Component, useState } from 'react'
 import { Col, Container, Form, Row, Button } from 'react-bootstrap'
 import { saveAs } from 'file-saver'
@@ -15,7 +15,15 @@ class CareerForm extends Component {
     birthDate: '-',
     gender: '-',
     status: '-',
-    education: '-'
+    education: '-',
+    edufrom: '-',
+    eduto: '-',
+    workingexp: '-',
+    workfrom: '-',
+    workto: '-',
+    workingpos: '-',
+    workingdesc: '-',
+    capabilities: '-'
   }
 
   handleChange = ({target: {value,name}}) => this.setState({ [name]: value })
@@ -82,7 +90,7 @@ class CareerForm extends Component {
                   <option selected disabled>Select Position</option> 
                   <option value="Mobile Developer">Mobile Developer</option>
                   <option value="Front-end Developer">Front-end Developer</option>
-                  <option value="Java Developers">Java Developers</option>
+                  <option value="Java Developer">Java Developer</option>
                   <option value="Golang Developer">Golang Developer</option>
                   <option value="QA Engineer">QA Engineer</option>
                   <option value="Product Manager">Product Manager</option>
@@ -136,8 +144,29 @@ class CareerForm extends Component {
               <Form.Group className="mb-3">
                 <Form.Label>Latest Formal Education</Form.Label>
                 <Form.Control type="text" placeholder="Latest Formal Education" name='education' onChange={this.handleChange}/>
+                <div className='d-flex gap-3 mt-3'>
+                  <Form.Control type="text" placeholder="Period From (Year)" name='edufrom' onChange={this.handleChange}/>
+                  <Form.Control type="text" placeholder="Period To (Year)" name='eduto' onChange={this.handleChange}/>
+                </div>
               </Form.Group>
-
+              <Form.Group className="mb-3">
+                <Form.Label>Working Experience</Form.Label>
+                <Form.Control type="text" placeholder="Latest Working Place" name='workingexp' onChange={this.handleChange}/>
+                <div className='d-flex gap-3 mt-3'>
+                  <Form.Control type="text" placeholder="Period From (Year)" name='workfrom' onChange={this.handleChange}/>
+                  <Form.Control type="text" placeholder="Period To (Year)" name='workto' onChange={this.handleChange}/>
+                </div>
+                <Form.Control className='mt-3' type="text" placeholder="Position" name='workingpos' onChange={this.handleChange}/>
+                <Form.Control className='mt-3' type="text" placeholder="Job Description" name='workingdesc' onChange={this.handleChange}/>
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                <Form.Label>IT Capabilities</Form.Label>
+                <Form.Control as="textarea"
+                  placeholder="Your IT Capabilities such as programming language, frameworks and all" 
+                  name='capabilities' 
+                  size="md"
+                  onChange={this.handleChange} />
+              </Form.Group>
               <Button type='button' className='mt-3 w-100' onClick={this.createAndDownloadPdf}>Apply</Button>
             </Form>
           </Container>

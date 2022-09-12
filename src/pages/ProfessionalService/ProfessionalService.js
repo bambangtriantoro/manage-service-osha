@@ -34,42 +34,42 @@ const ProfessionalService = () => {
                         </div>
                     </Col>
                     <Col xs={12} sm={12} md={12} lg={4}>
-                        <div className='pros-cap-list'>
+                        <div className='pros-cap-list blue'>
                             <h5>BUSINESS ANALYST</h5>
                         </div>
                     </Col>
                     <Col xs={12} sm={12} md={12} lg={4}>
-                        <div className='pros-cap-list'>
+                        <div className='pros-cap-list green'>
                             <h5>SYSTEM ANALYST</h5>
                         </div>
                     </Col>
                     <Col xs={12} sm={12} md={12} lg={4}>
-                        <div className='pros-cap-list'>
+                        <div className='pros-cap-list violet'>
                             <h5>FUNCTIONAL CONSULTANT</h5>
                         </div>
                     </Col>
                     <Col xs={12} sm={12} md={12} lg={12}>
-                        <div className='pros-cap-list'>
+                        <div className='pros-cap-list red'>
                             <h5>SOFTWARE ARCHITECT</h5>
                         </div>
                     </Col>
                     <Col xs={12} sm={12} md={12} lg={3}>
-                        <div className='pros-cap-list'>
+                        <div className='pros-cap-list blue'>
                             <h5>SOFTWARE DEVELOPER</h5>
                         </div>
                     </Col>
                     <Col xs={12} sm={12} md={12} lg={3}>
-                        <div className='pros-cap-list'>
+                        <div className='pros-cap-list green'>
                             <h5>BI CONSULTANT</h5>
                         </div>
                     </Col>
                     <Col xs={12} sm={12} md={12} lg={3}>
-                        <div className='pros-cap-list'>
+                        <div className='pros-cap-list violet'>
                             <h5>MIDDLEWARE CONSULTANT</h5>
                         </div>
                     </Col>
                     <Col xs={12} sm={12} md={12} lg={3}>
-                        <div className='pros-cap-list'>
+                        <div className='pros-cap-list red'>
                             <h5>TECHNICAL CONSULTANT</h5>
                         </div>
                     </Col>
@@ -79,7 +79,7 @@ const ProfessionalService = () => {
                         </div>
                     </Col>
                     <Col xs={12} sm={12} md={12} lg={12}>
-                        <div className='pros-cap-list'>
+                        <div className='pros-cap-list blue'>
                             <h5>APPLICATION SUPPORT</h5>
                         </div>
                     </Col>

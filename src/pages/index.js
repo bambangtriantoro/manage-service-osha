@@ -14,4 +14,5 @@ export { default as ProfessionalService } from "./ProfessionalService/Profession
 export { default as ItBootcamp } from "./ItBootcamp/ItBootcamp"
 export { default as Career } from "./Career/Career"
 export { default as NewsPage } from "./NewsPage/NewsPage"
+export { default as NewsItem } from "./NewsItem/NewsItem"
 export { default as Contact } from "./Contact/Contact"

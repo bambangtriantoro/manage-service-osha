@@ -1,9 +1,11 @@
 import './Hero.css'
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import React, { useRef } from 'react'
 import { Carousel, Row, Col, Form, Button } from 'react-bootstrap'
 import { easybi, lemon, LogoOsha, oranye } from '../../components/NavigationBar/imports'
 import { Link } from 'react-router-dom'
+import emailjs from '@emailjs/browser'  
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 AOS.init({
     once: true,
@@ -11,6 +13,21 @@ AOS.init({
 });
 
 const Hero = (props) => {
+    const form = useRef()
+
+    function sendEmail(e){
+        e.preventDefault();
+
+        emailjs.sendForm('service_rra8cyh', 'osha_contact_2022', form.current, 'RYQUd_Td28qmEEJlL')
+        .then((result) => {
+            console.log(result.text);
+        }, (error) => {
+            console.log(error.text);
+        });
+
+        form.current.reset()
+    }
+
     return(
         <>  
             <div className='hero'>
@@ -89,24 +106,25 @@ const Hero = (props) => {
                     </Carousel>
                 </div>
                 <div className='hero-absolute-item'>
-                    <Form>
+                    <Form ref={form} onSubmit={sendEmail}>
                         <Form.Group className="mb-3">
-                            <Form.Control type="text" size="sm" placeholder="Name" />
+                            <Form.Control type="text" size="sm" placeholder="Name" name="name" />
                         </Form.Group>
                         <Form.Group className="mb-3">
-                            <Form.Control type="email" size="sm" placeholder="Email" />
+                            <Form.Control type="email" size="sm" placeholder="Email" name="email" />
                         </Form.Group>
                         <Form.Group className="mb-3">
-                            <Form.Control type="text" size="sm" placeholder="Contact Number" />
+                            <Form.Control type="text" size="sm" placeholder="Contact Number" name="contact"  />
                         </Form.Group>
                         <Form.Group className="mb-3">
-                            <Form.Control type="text" size="sm" placeholder="Company" />
+                            <Form.Control type="text" size="sm" placeholder="Company" name="company" />
                         </Form.Group>
                         <Form.Group className="mb-3">
                             <Form.Control
                                 as="textarea"
                                 placeholder="Message"
                                 size="sm"
+                                name="message"
                             />
                         </Form.Group>
                         <Button variant="dark" type="submit" className='w-100 rounded rounded-5'>

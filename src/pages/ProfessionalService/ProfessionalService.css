@@ -19,7 +19,7 @@
 }
 
 .professional-service .img-container-pros {
-    background: #ff7f08;
+    background: #d64835;
     width: 50%;
     padding: 40px;
     border-radius: 50%;
@@ -45,4 +45,20 @@
 
 .pros-cap-list h5 {
     font-weight: 700;
+}
+
+.blue {
+    background-color: #1f36ff !important;
+}
+
+.green {
+    background-color: #00ca3d !important;
+}
+
+.red {
+    background-color: #d62b2b !important;
+}
+
+.violet {
+    background-color: #b100b8 !important;
 }

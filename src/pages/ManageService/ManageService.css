@@ -45,3 +45,17 @@
 .manage-service .text-orange {
     color: #FF5E00;
 }
+
+.manage-service .btn.red:hover {
+    border: none !important;
+    color: #fff;
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+.manage-service .btn.green:hover {
+    border: none !important;
+    color: #fff;
+    transform: scale(1.1);
+    transition: 0.3s;
+}

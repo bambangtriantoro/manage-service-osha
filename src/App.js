@@ -1,7 +1,6 @@
 import './App.css'    
-import { Home } from "./pages/index"
 import { Routes, Route } from "react-router-dom";
-import { About, WebSolution, MobileSolution, CustomSolution, BusinessIntelligence, ProductSolution, SimanisApp, OranyeApp, LemonApp, EasybiApp, ManageService, ProfessionalService, ItBootcamp, Career, Contact, NewsPage } from "./pages/index";
+import { Home, About, WebSolution, MobileSolution, CustomSolution, BusinessIntelligence, ProductSolution, SimanisApp, OranyeApp, LemonApp, EasybiApp, ManageService, ProfessionalService, ItBootcamp, Career, Contact, NewsPage, NewsItem } from "./pages/index";
 
 function App() {
   return (
@@ -23,8 +22,10 @@ function App() {
         <Route path="/itbootcamp" element={<ItBootcamp />} />
         <Route path="/career" element={<Career />} />
         <Route path="/news" element={<NewsPage />} />
+        <Route path="/news/newsitem" element={<NewsItem />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>      
+      <script src="/build/client.entry.js" />
     </>
   );
 }

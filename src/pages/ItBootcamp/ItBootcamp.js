@@ -32,10 +32,10 @@ const ItBootcamp = () => {
                 <h3>IT Capabilities</h3>
                 <Row xs={1} sm={1} md={1} className='justify-content-center align-items-center g-3'>
                     <Col><FaJava size={40} /><h5>JAVA DEVELOPER</h5></Col>
-                    <Col><DiDotnet size={40} /><h5>.NET DEVELOPER</h5></Col>
-                    <Col><FaPhp size={40} /><h5>PHP DEVELOPER</h5></Col>
-                    <Col><FaMobileAlt size={40} /><h5>MOBILE DEVELOPER</h5></Col>
-                    <Col><SiPowerbi size={40} /><h5>BI DEVELOPER</h5></Col>
+                    <Col className='blue'><DiDotnet size={40} /><h5>.NET DEVELOPER</h5></Col>
+                    <Col className='green'><FaPhp size={40} /><h5>PHP DEVELOPER</h5></Col>
+                    <Col className='violet'><FaMobileAlt size={40} /><h5>MOBILE DEVELOPER</h5></Col>
+                    <Col className='red'><SiPowerbi size={40} /><h5>BI DEVELOPER</h5></Col>
                 </Row>
             </Container>
         </section>
