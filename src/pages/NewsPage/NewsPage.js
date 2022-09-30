@@ -28,7 +28,7 @@ const NewsPage = () => {
                       <div>
                         <h4>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h4>
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel, consequatur numquam voluptatum velit quod nostrum mollitia. Culpa hic exercitationem laudantium similique maiores in quis tempore eos blanditiis? Minus voluptates ea sit quaerat enim fugit omnis quisquam quod, blanditiis natus libero! Distinctio necessitatibus saepe autem amet obcaecati eum id, nihil vero.</p>
-                        <Link to='news/newsitem'><p>Read More</p></Link>
+                        <Link to='newsitem'><p>Read More</p></Link>
                       </div>
                     </Col>
                   </Row>

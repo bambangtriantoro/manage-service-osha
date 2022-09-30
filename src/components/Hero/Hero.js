@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom'
 import emailjs from '@emailjs/browser'  
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";  
 
 AOS.init({
     once: true,
@@ -13,19 +15,78 @@ AOS.init({
 });
 
 const Hero = (props) => {
+    const { register, handleSubmit } = useForm();
+  
+    const onSubmit = (data) => {
+        console.log(data);
+        sendEmail();  
+    }
+    
+    const onError = (errors) => {
+        console.log(errors);
+        HandleClickWarning()
+    }
+
+    function onlyNumberKey(evt) {
+        var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57)){
+            evt.preventDefault()
+        }
+        console.log(evt.which)
+        console.log(evt.keyCode)
+    }
+
     const form = useRef()
 
-    function sendEmail(e){
-        e.preventDefault();
-
+    function sendEmail(){
         emailjs.sendForm('service_rra8cyh', 'osha_contact_2022', form.current, 'RYQUd_Td28qmEEJlL')
         .then((result) => {
             console.log(result.text);
+            HandleClickAutoclose()
         }, (error) => {
             console.log(error.text);
         });
 
         form.current.reset()
+    }
+
+    function HandleClickWarning() {
+        Swal.fire({
+            title: "Please fill in all fields",
+            type: "warning",
+            confirmButtonColor: '#FF7A00',
+            confirmButtonText: 'Okay',
+            closeOnConfirm: true
+        });
+    }
+
+    function HandleClickAutoclose() {  
+        let timerInterval  
+        Swal.fire({  
+        title: 'Email Sent!',  
+        timer: 3000,  
+        timerProgressBar: true,
+        confirmButtonColor: "#FF7A00",  
+        onBeforeOpen: () => {  
+            Swal.showLoading()  
+            timerInterval = setInterval(() => {  
+            const content = Swal.getContent()  
+            if (content) {  
+                const b = content.querySelector('b')  
+                if (b) {  
+                b.textContent = Swal.getTimerLeft()  
+                }  
+            }  
+            }, 100)  
+        },  
+        onClose: () => {  
+            clearInterval(timerInterval)  
+        }  
+        }).then((result) => {  
+            if (result.dismiss === Swal.DismissReason.timer) {  
+                console.log('I was closed by the timer')  
+            }  
+        })  
     }
 
     return(
@@ -106,28 +167,28 @@ const Hero = (props) => {
                     </Carousel>
                 </div>
                 <div className='hero-absolute-item'>
-                    <Form ref={form} onSubmit={sendEmail}>
+                    <Form ref={form} onSubmit={handleSubmit(onSubmit,onError)}>
                         <Form.Group className="mb-3">
-                            <Form.Control type="text" size="sm" placeholder="Name" name="name" />
+                            <Form.Control type="text" size="sm" placeholder="Name" name='name'  {...register("name", { required: true })} />
                         </Form.Group>
                         <Form.Group className="mb-3">
-                            <Form.Control type="email" size="sm" placeholder="Email" name="email" />
+                            <Form.Control type="email" size="sm" placeholder="Email" name='email' {...register("email", { required: true })} />
                         </Form.Group>
                         <Form.Group className="mb-3">
-                            <Form.Control type="text" size="sm" placeholder="Contact Number" name="contact"  />
+                            <Form.Control type="text" size="sm" placeholder="Contact Number" name='contact' onKeyDown={(evt) => {onlyNumberKey(evt)}} {...register("contact", { required: true , pattern: { value: /^[0-9]*$/, message: 'Only Numbers Allowed'}})} />
                         </Form.Group>
                         <Form.Group className="mb-3">
-                            <Form.Control type="text" size="sm" placeholder="Company" name="company" />
+                            <Form.Control type="text" size="sm" placeholder="Company" name='company' {...register("company", { required: true })} />
                         </Form.Group>
                         <Form.Group className="mb-3">
                             <Form.Control
                                 as="textarea"
                                 placeholder="Message"
                                 size="sm"
-                                name="message"
+                                name='message' {...register("message", { required: true })}
                             />
                         </Form.Group>
-                        <Button variant="dark" type="submit" className='w-100 rounded rounded-5'>
+                        <Button type='submit' className='w-100 btn-primary'>
                             Submit
                         </Button>
                     </Form>

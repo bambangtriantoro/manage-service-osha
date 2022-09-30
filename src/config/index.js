@@ -10,7 +10,7 @@ const isLocalhost = Boolean(
 
 const API_URL = isLocalhost 
         ? "http://localhost:5000"
-        : "https://server.oshatechnology.com"
+        : "https://send-to-mail-osha.herokuapp.com/"
 
 export const AxiosCustom = axios.create({
     withCredentials: false,

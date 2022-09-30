@@ -25,7 +25,6 @@ function App() {
         <Route path="/news/newsitem" element={<NewsItem />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>      
-      <script src="/build/client.entry.js" />
     </>
   );
 }

@@ -1,10 +1,11 @@
-import './CareerForm.css' 
+import './CareerForm.css'   
 import React, { Component, useState } from 'react'
 import { Col, Container, Form, Row, Button } from 'react-bootstrap'
-import { saveAs } from 'file-saver'
+// import { saveAs } from 'file-saver'
 import { AxiosCustom } from '../../config'
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import Swal from "sweetalert2";  
 
 class CareerForm extends Component {
   state = {
@@ -28,16 +29,34 @@ class CareerForm extends Component {
 
   handleChange = ({target: {value,name}}) => this.setState({ [name]: value })
 
+  // createAndDownloadPdf = () => {
+  //   AxiosCustom.post('/create-pdf', this.state)
+  //   .then(() => AxiosCustom.get('fetch-pdf', {responseType: 'blob'}))
+  //   .then((res) => {
+  //     const pdfBlob = new Blob([res.data], { type:'application/pdf' })
+  //     saveAs(pdfBlob, 'newPdf.pdf')
+  //   })
+  // }
+
   createAndDownloadPdf = () => {
     AxiosCustom.post('/create-pdf', this.state)
     .then(() => AxiosCustom.get('fetch-pdf', {responseType: 'blob'}))
-    .then((res) => {
-      const pdfBlob = new Blob([res.data], { type:'application/pdf' })
-      saveAs(pdfBlob, 'newPdf.pdf')
+    .then(() => {
+      this.HandleClickAutoclose()
     })
   }
+  
+  // createAndDownloadPdf = () => {
+  //   AxiosCustom.post('/create-pdf', this.state)
+  //   .then(() => AxiosCustom.get('fetch-pdf', {responseType: 'blob'}))
+  //   .then((res) => {
+  //     const pdfBlob = new Blob([res.data], { type:'application/pdf' })
+  //     saveAs(pdfBlob, 'newPdf.pdf')
+  //   })
+  // }
 
   DateField = () => {
+    
     const [startDate, setStartDate] = useState(null);
     
     const handleChangeDate = date => {
@@ -51,7 +70,7 @@ class CareerForm extends Component {
       this.setState({ birthDate: valueOfInput })
     };
 
-    return (
+    return ( 
       <DatePicker 
         selected={startDate} 
         onChange={(date) => {
@@ -67,6 +86,45 @@ class CareerForm extends Component {
         className='form-control' 
         name='birthDate' />
     )
+  }
+
+  HandleClickAutoclose() {  
+    let timerInterval  
+    Swal.fire({  
+      title: 'Email Sent!',  
+      timer: 3000,  
+      timerProgressBar: true,
+      confirmButtonColor: "#FF7A00",  
+      onBeforeOpen: () => {  
+        Swal.showLoading()  
+        timerInterval = setInterval(() => {  
+          const content = Swal.getContent()  
+          if (content) {  
+            const b = content.querySelector('b')  
+            if (b) {  
+              b.textContent = Swal.getTimerLeft()  
+            }  
+          }  
+        }, 100)  
+      },  
+      onClose: () => {  
+        clearInterval(timerInterval)  
+      }  
+    }).then((result) => {  
+      if (result.dismiss === Swal.DismissReason.timer) {  
+        console.log('I was closed by the timer')  
+      }  
+    })  
+  }
+
+  onlyNumberKey(evt) {
+    // Only ASCII character in that range allowed
+    var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+    if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57)){
+        evt.preventDefault()
+    }
+    console.log(evt.which)
+    console.log(evt.keyCode)
   }
 
   render() {
@@ -145,18 +203,18 @@ class CareerForm extends Component {
                 <Form.Label>Latest Formal Education</Form.Label>
                 <Form.Control type="text" placeholder="Latest Formal Education" name='education' onChange={this.handleChange}/>
                 <div className='d-flex gap-3 mt-3'>
-                  <Form.Control type="text" placeholder="Period From (Year)" name='edufrom' onChange={this.handleChange}/>
-                  <Form.Control type="text" placeholder="Period To (Year)" name='eduto' onChange={this.handleChange}/>
+                  <Form.Control type="text" placeholder="Period From (Year)" name='edufrom' onChange={this.handleChange} onKeyDown={this.onlyNumberKey} pattern="[0-9]*"/>
+                  <Form.Control type="text" placeholder="Period To (Year)" name='eduto' onChange={this.handleChange} onKeyDown={this.onlyNumberKey} pattern="[0-9]*"/>
                 </div>
               </Form.Group>
               <Form.Group className="mb-3">
                 <Form.Label>Working Experience</Form.Label>
-                <Form.Control type="text" placeholder="Latest Working Place" name='workingexp' onChange={this.handleChange}/>
+                <Form.Control type="text" placeholder="Latest Working Place" name='workingexp' onChange={this.handleChange} />
                 <div className='d-flex gap-3 mt-3'>
-                  <Form.Control type="text" placeholder="Period From (Year)" name='workfrom' onChange={this.handleChange}/>
-                  <Form.Control type="text" placeholder="Period To (Year)" name='workto' onChange={this.handleChange}/>
+                  <Form.Control type="text" placeholder="Period From (Year)" name='workfrom' onChange={this.handleChange} onKeyDown={this.onlyNumberKey} />
+                  <Form.Control type="text" placeholder="Period To (Year)" name='workto' onChange={this.handleChange} onKeyDown={this.onlyNumberKey} />
                 </div>
-                <Form.Control className='mt-3' type="text" placeholder="Position" name='workingpos' onChange={this.handleChange}/>
+                <Form.Control className='mt-3' type="text" placeholder="Position" name='workingpos' onChange={this.handleChange} />
                 <Form.Control className='mt-3' type="text" placeholder="Job Description" name='workingdesc' onChange={this.handleChange}/>
               </Form.Group>
               <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
