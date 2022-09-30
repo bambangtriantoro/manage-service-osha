@@ -1,6 +1,6 @@
 import './App.css'    
 import { Routes, Route } from "react-router-dom";
-import { Home, About, WebSolution, MobileSolution, CustomSolution, BusinessIntelligence, ProductSolution, SimanisApp, OranyeApp, LemonApp, EasybiApp, ManageService, ProfessionalService, ItBootcamp, Career, Contact, NewsPage, NewsItem } from "./pages/index";
+import { Home, About, WebSolution, MobileSolution, CustomSolution, BusinessIntelligence, ProductSolution, SimanisApp, OranyeApp, LemonApp, EasybiApp, ManageService, ProfessionalService, ItBootcamp, Career, Contact, NewsPage, NewsItem, AdminAccessLogin, AdminAccessDashboard } from "./pages/index";
 
 function App() {
   return (
@@ -24,6 +24,7 @@ function App() {
         <Route path="/news" element={<NewsPage />} />
         <Route path="/news/newsitem" element={<NewsItem />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/admin_access" element={<AdminAccessDashboard />} />
       </Routes>      
     </>
   );

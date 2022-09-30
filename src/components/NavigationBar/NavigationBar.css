@@ -76,7 +76,7 @@
 }
 
 .navbar .dropdown-toggle {
-    cursor: pointer;
+    cursor: pointer !important;
 }
 
 .navbar .dropdown-item:hover {

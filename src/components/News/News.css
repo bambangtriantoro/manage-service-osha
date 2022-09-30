@@ -38,6 +38,11 @@
     transition: 0.5s;
 }
 
+.news .container .row .col a {
+    text-decoration: none;
+    color: inherit;
+}
+
 .news .container > a {
     color: #292929;
     text-align: center;

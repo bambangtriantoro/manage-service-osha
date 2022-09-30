@@ -18,7 +18,7 @@ const ContactUs = () => {
   const form = useRef();
 
   function sendEmail() {
-    emailjs.sendForm('service_rra8cyh', 'osha_contact_2022', form.current, 'RYQUd_Td28qmEEJlL')
+    emailjs.sendForm('service_rfp1ari', 'template_dre4jkb', form.current, 'o1LgoXRuLV7xMthcP')
     .then((result) => {
         console.log(result.text);
         HandleClickAutoclose()
