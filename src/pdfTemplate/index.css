@@ -1,0 +1,79 @@
+@page { margin: 0 !important; }
+
+@media all {
+    .page-break {
+        display: none;
+    }
+}
+
+@media print {
+    html, body {
+        height: initial !important;
+        overflow: initial !important;
+    }
+
+    p {
+        margin: 0;
+    }
+}
+
+@media print {
+    .page-break {
+        margin-top: 1rem;
+        display: block;
+        page-break-before: always;
+    }
+
+    .page-header .name {
+        font-size: 60px;
+    }
+    
+    .page-header .position {
+        font-size: 40px;
+    }
+
+    .page-body {
+        padding: 30px 0px;
+        font-size: 18px;
+    }
+
+    .page-body table.table-bordered{
+        border:2px solid #3d3d3d;
+        margin-top:20px;
+    }
+    .page-body table.table-bordered > thead > tr > th{
+        background-color: #222;
+        border:2px solid #3d3d3d;
+        padding: 3px 5px;
+    }
+    .page-body table.table-bordered > tbody > tr > td{
+        border:2px solid #3d3d3d;
+        padding: 3px 5px;
+    }
+
+    .page-body table tr > td:first-of-type {
+        color: #ff4500;
+    }
+
+    .page-footer {
+        position: fixed;
+        bottom: 0;
+    }
+
+    .footer-text {
+        position: absolute;
+        text-align: center;
+        bottom: 30px;
+        left: 30%;
+    }
+
+    .footer-text p {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+@page {
+    size: auto;
+    margin: 20mm;
+}

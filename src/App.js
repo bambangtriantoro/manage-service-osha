@@ -1,6 +1,6 @@
 import './App.css'    
 import { Routes, Route } from "react-router-dom";
-import { Home, About, WebSolution, MobileSolution, CustomSolution, BusinessIntelligence, ProductSolution, SimanisApp, OranyeApp, LemonApp, EasybiApp, ManageService, ProfessionalService, ItBootcamp, Career, Contact, NewsPage, NewsItem, AdminAccessLogin, AdminAccessDashboard } from "./pages/index";
+import { Home, About, WebSolution, MobileSolution, CustomSolution, BusinessIntelligence, ProductSolution, SimanisApp, OranyeApp, LemonApp, EasybiApp, ManageService, ProfessionalService, ItBootcamp, Career, Contact, NewsPage, NewsItem, AdminAccessDashboard } from "./pages/index";
 
 function App() {
   return (

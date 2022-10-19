@@ -1,5 +1,5 @@
 import './Hero.css'
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import { Carousel, Row, Col, Form, Button } from 'react-bootstrap'
 import { easybi, lemon, LogoOsha, oranye } from '../../components/NavigationBar/imports'
 import { Link } from 'react-router-dom'
@@ -8,6 +8,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";  
+import Loading from '../../subcomponents/Loading/Loading'
 
 AOS.init({
     once: true,
@@ -15,16 +16,31 @@ AOS.init({
 });
 
 const Hero = (props) => {
-    const { register, handleSubmit } = useForm();
-  
+    const [ loading, setLoading ] = useState(false)
+    const { register, handleSubmit, reset } = useForm();
+
     const onSubmit = (data) => {
         console.log(data);
+        setLoading(true)
         sendEmail();  
     }
     
     const onError = (errors) => {
         console.log(errors);
         HandleClickWarning()
+    }
+
+    const form = useRef()
+
+    function sendEmail() {
+        emailjs.sendForm('service_rfp1ari', 'template_dre4jkb', form.current, 'o1LgoXRuLV7xMthcP')
+        .then((result) => {
+            setLoading(false)
+            console.log(result.text);
+            HandleClickAutoclose()
+        }, (error) => {
+            console.log(error.text);
+        });
     }
 
     function onlyNumberKey(evt) {
@@ -34,20 +50,6 @@ const Hero = (props) => {
         }
         console.log(evt.which)
         console.log(evt.keyCode)
-    }
-
-    const form = useRef()
-
-    function sendEmail() {
-        emailjs.sendForm('service_rfp1ari', 'template_dre4jkb', form.current, 'o1LgoXRuLV7xMthcP')
-        .then((result) => {
-            console.log(result.text);
-            HandleClickAutoclose()
-        }, (error) => {
-            console.log(error.text);
-        });
-    
-        form.current.reset()
     }
 
     function HandleClickWarning() {
@@ -84,8 +86,10 @@ const Hero = (props) => {
         }  
         }).then((result) => {  
             if (result.dismiss === Swal.DismissReason.timer) {  
-                console.log('I was closed by the timer')  
-            }  
+                reset()  
+            } else {
+                reset()  
+            }
         })  
     }
 
@@ -189,7 +193,7 @@ const Hero = (props) => {
                             />
                         </Form.Group>
                         <Button type='submit' className='w-100 btn-primary'>
-                            Submit
+                            { loading ? <Loading size='small' /> : 'Submit' }
                         </Button>
                     </Form>
                 </div>

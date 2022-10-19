@@ -10,7 +10,7 @@ const isLocalhost = Boolean(
 
 const API_URL = isLocalhost 
         ? "http://127.0.0.1:8000/"
-        : "https://export-and-send-pdf-osha.vercel.app/"
+        : "https://api.oshatechnology.com/"
 
 const getToken = () => {
     const tokenString = sessionStorage.getItem('token')
@@ -20,9 +20,9 @@ const getToken = () => {
 }
 
 export const AxiosCustom = axios.create({
-    withCredentials: true,
+    withCredentials: false,
     baseURL: API_URL,
     headers: {
-        'Authorization': `Bearer ${getToken()}`
+        'Authorization': `Bearer ${getToken()}` 
     }
 })

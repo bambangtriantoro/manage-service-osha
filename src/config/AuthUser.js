@@ -13,7 +13,7 @@ export default function AuthUser() {
     
     const API_URL = isLocalhost 
             ? "http://127.0.0.1:8000/"
-            : "https://server.oshatechnology.com/"
+            : "https://api.oshatechnology.com/"
     
     const navigate = useNavigate()
 
@@ -40,7 +40,7 @@ export default function AuthUser() {
 
         setToken(token)
         setUser(user)
-        navigate('/admin_access/dashboard')
+        window.location.reload()
     }
 
     const logout = () => { 
@@ -49,7 +49,7 @@ export default function AuthUser() {
     }
 
     const AxiosAuth = axios.create({
-        withCredentials: true,
+        withCredentials: false,
         baseURL: API_URL
     })
 

@@ -1,3 +1,7 @@
 .centered-table-content {
   vertical-align: middle;
 }
+
+.detail-table tr > * {
+  padding: 10px 0;
+}

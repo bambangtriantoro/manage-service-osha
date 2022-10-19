@@ -1,13 +1,52 @@
 import "./CareerForm.css";
 import React, { Component, useState } from "react";
 import { Col, Container, Form, Row, Button } from "react-bootstrap";
-// import { saveAs } from 'file-saver'
 import { AxiosCustom } from "../../config";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Swal from "sweetalert2";
+import Loading from "../../subcomponents/Loading/Loading";
+
+// For Saving File
+// import { saveAs } from 'file-saver'
+
+// Initial State
+const initialState = {
+  name: "-",
+  email: "-",
+  position: "-",
+  birthPlace: "-",
+  birthDate: "-",
+  gender: "-",
+  status: "-",
+  education: "-",
+  edufrom: "-",
+  eduto: "-",
+  workingexp: "-",
+  workfrom: "-",
+  workto: "-",
+  workingpos: "-",
+  workingdesc: "-",
+  capabilities: "-",
+  loading: false
+};
 
 class CareerForm extends Component {
+  // Initial function
+  constructor(props) {
+    super(props)
+    this.state = initialState;
+  }
+
+  // Reset State Function
+  resetState() {
+    this.setState(initialState);
+  }
+
+  // Initial value
+  initialValue = '-'
+  
+  // Primary state
   state = {
     name: "-",
     email: "-",
@@ -25,39 +64,48 @@ class CareerForm extends Component {
     workingpos: "-",
     workingdesc: "-",
     capabilities: "-",
+    loading: false
   };
 
+  // Form ref
   form = React.createRef();
 
-  handleChange = ({ target: { value, name } }) =>
-    this.setState({ [name]: value });
-
-  // createAndDownloadPdf = () => {
-  //   AxiosCustom.post('/create-pdf', this.state)
-  //   .then(() => AxiosCustom.get('fetch-pdf', {responseType: 'blob'}))
-  //   .then((res) => {
-  //     const pdfBlob = new Blob([res.data], { type:'application/pdf' })
-  //     saveAs(pdfBlob, 'newPdf.pdf')
-  //   })
-  // }
-
-  addNewApplicant = () => {
-    AxiosCustom.post("/api/applicant/store", this.state).then(() => {
-      this.HandleClickAutoclose();
-    });
-
-    this.form.current.reset();
+  // Form input on change
+  handleChange = ({ target: { value, name } }) => {
+    this.setState({ [name]: value })
   };
 
-  // createAndDownloadPdf = () => {
-  //   AxiosCustom.post('/create-pdf', this.state)
-  //   .then(() => AxiosCustom.get('fetch-pdf', {responseType: 'blob'}))
-  //   .then((res) => {
-  //     const pdfBlob = new Blob([res.data], { type:'application/pdf' })
-  //     saveAs(pdfBlob, 'newPdf.pdf')
-  //   })
-  // }
+  // Apply Function
+  addNewApplicant = () => {
+    this.setState({loading: true})
 
+    const validate = Object.keys(this.state).map((key) => {
+      if(this.state[key] === this.initialValue){
+        return false
+      } 
+      return true
+    })
+
+    if (!validate.includes(false)) {
+      AxiosCustom.post("/api/applicant/store", this.state)
+      .then((res) => {
+        if(res.data.success === false) {
+          this.HandleClickWarning(res.data.data.email[0]);
+        } else {
+          this.HandleClickAutoclose()
+        }
+      },
+      error => {
+        console.error('Error : ',error)
+      });
+    } else if (validate.includes(false)) {
+      this.HandleClickWarning()
+    } else {
+      console.log(validate)
+    }
+  };
+
+  // Date Input
   DateField = () => {
     const [startDate, setStartDate] = useState(null);
 
@@ -93,6 +141,20 @@ class CareerForm extends Component {
     );
   };
 
+  // Alert warning
+  HandleClickWarning(message = 'Please fill in all fields') {
+    Swal.fire({
+        title: message,
+        type: "warning",
+        confirmButtonColor: '#FF7A00',
+        confirmButtonText: 'Okay',
+        closeOnConfirm: true
+    }).then((result) => {
+      this.setState({loading: false})
+    });
+  }
+
+  // Alert auto close
   HandleClickAutoclose() {
     let timerInterval;
     Swal.fire({
@@ -117,13 +179,21 @@ class CareerForm extends Component {
       },
     }).then((result) => {
       if (result.dismiss === Swal.DismissReason.timer) {
-        console.log("I was closed by the timer");
+        this.form.current.reset();
+        this.resetState()
+        window.location.reload()
+        this.setState({loading: false})
+      } else {
+        this.form.current.reset();
+        this.resetState()
+        window.location.reload()
+        this.setState({loading: false})
       }
     });
   }
 
+  // Only Number Function
   onlyNumberKey(evt) {
-    // Only ASCII character in that range allowed
     var ASCIICode = evt.which ? evt.which : evt.keyCode;
     if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57)) {
       evt.preventDefault();
@@ -131,6 +201,16 @@ class CareerForm extends Component {
     console.log(evt.which);
     console.log(evt.keyCode);
   }
+
+  // Create PDF then send it to email with nodeJS
+  // createAndDownloadPdf = () => {
+  //   AxiosCustom.post('/create-pdf', this.state)
+  //   .then(() => AxiosCustom.get('fetch-pdf', {responseType: 'blob'}))
+  //   .then((res) => {
+  //     const pdfBlob = new Blob([res.data], { type:'application/pdf' })
+  //     saveAs(pdfBlob, 'newPdf.pdf')
+  //   })
+  // }
 
   render() {
     return (
@@ -172,8 +252,9 @@ class CareerForm extends Component {
                   aria-label="Default select example"
                   name="position"
                   onChange={this.handleChange}
+                  defaultValue='-'
                 >
-                  <option selected disabled>
+                  <option value='-' disabled>
                     Select Position
                   </option>
                   <option value="Mobile Developer">Mobile Developer</option>
@@ -237,8 +318,9 @@ class CareerForm extends Component {
                   aria-label="Default select example"
                   name="status"
                   onChange={this.handleChange}
+                  defaultValue='-'
                 >
-                  <option selected disabled>
+                  <option value='-' disabled>
                     Select Your Marital Status
                   </option>
                   <option value="Single">Single</option>
@@ -327,9 +409,9 @@ class CareerForm extends Component {
               <Button
                 type="button"
                 className="mt-3 w-100"
-                onClick={this.addNewApplicant}
+                onClick={()=>{this.addNewApplicant()}}
               >
-                Apply
+                {this.state['loading'] ? <Loading size='small'/> : 'Apply'}
               </Button>
             </Form>
           </Container>

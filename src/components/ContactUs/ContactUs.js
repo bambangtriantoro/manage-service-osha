@@ -1,18 +1,27 @@
 import './ContactUs.css'
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import { Form, Button, Row, Col } from 'react-bootstrap'
 import { RiWhatsappLine } from 'react-icons/ri'
-import contactImg from '../../assets/images/Get in touch-bro.png' 
-import emailjs from '@emailjs/browser'
 import { useForm } from "react-hook-form";
+import emailjs from '@emailjs/browser'
 import Swal from "sweetalert2";  
+import contactImg from '../../assets/images/Get in touch-bro.png'
+import Loading from '../../subcomponents/Loading/Loading' 
 
 const ContactUs = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const [ loading, setLoading ] = useState(false)
+
+  const { register, handleSubmit, reset, formState: { errors } } = useForm();
   
   const onSubmit = (data) => {
-    console.log(data);
-    sendEmail();  
+    console.log(form.current);
+    setLoading(true)
+    sendEmail() 
+  }
+
+  const onError = (errors) => {
+    console.log(errors);
+    HandleClickWarning()
   }
 
   const form = useRef();
@@ -20,14 +29,13 @@ const ContactUs = () => {
   function sendEmail() {
     emailjs.sendForm('service_rfp1ari', 'template_dre4jkb', form.current, 'o1LgoXRuLV7xMthcP')
     .then((result) => {
+        setLoading(false)
         console.log(result.text);
         HandleClickAutoclose()
     }, (error) => {
         console.log(error.text);
     });
-
-    form.current.reset()
-  }
+  } 
 
   function onlyNumberKey(evt) {
     // Only ASCII character in that range allowed
@@ -37,6 +45,16 @@ const ContactUs = () => {
     }
     console.log(evt.which)
     console.log(evt.keyCode)
+  }
+
+  function HandleClickWarning() {
+    Swal.fire({
+        title: "Please fill in all fields",
+        type: "warning",
+        confirmButtonColor: '#FF7A00',
+        confirmButtonText: 'Okay',
+        closeOnConfirm: true
+    });
   }
 
   function HandleClickAutoclose() {  
@@ -63,8 +81,10 @@ const ContactUs = () => {
       }  
     }).then((result) => {  
       if (result.dismiss === Swal.DismissReason.timer) {  
-        console.log('I was closed by the timer')  
-      }  
+        reset()
+      } else {
+        reset()
+      } 
     })  
   }
 
@@ -75,7 +95,7 @@ const ContactUs = () => {
                     <p>Need Solutions?</p>
                     <h2>Contact Us</h2>
                     <div className='form'>
-                        <Form ref={form} onSubmit={handleSubmit(onSubmit)}>
+                        <Form ref={form} onSubmit={handleSubmit(onSubmit, onError)}>
                             <Form.Group className="mb-3">
                                 <Form.Control type="text" size="sm" placeholder="Name" name='name'  {...register("name", { required: true })} />
                                 {errors.name && <small className='text-danger'>Name is required</small>}
@@ -102,7 +122,7 @@ const ContactUs = () => {
                                 {errors.message && <small className='text-danger'>Message is required</small>}
                             </Form.Group>
                             <Button type='submit' className='w-100 btn-primary'>
-                                Submit
+                              { loading ? <Loading size='small' /> : 'Submit' }
                             </Button>
                         </Form>
                     </div>
