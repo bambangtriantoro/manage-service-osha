@@ -14,9 +14,15 @@ import ApplicantEdit from '../../subcomponents/Applicants/ApplicantEdit'
 const AdminAccessDashboard = () => {
     const [applicants, setApplicants] = useState([])
     const [applicant, setApplicant] = useState([])
+    const [experience, setExperience] = useState([])
+    const [jobdesc, setJobdesc] = useState([])
+    const [projects, setProjects] = useState([])
+    const [tools, setTools] = useState([])
+    const [capabilities, setCapabilities] = useState([])
     
     const [loading, setLoading] = useState(true)
     const [modalLoading, setModalLoading] = useState(false)
+    const [experienceLoading, setExperienceLoading] = useState(false)
     const [error, setError] = useState(null)
 
     const [show, setShow] = useState(false);
@@ -32,6 +38,7 @@ const AdminAccessDashboard = () => {
     const componentRef = useRef();
     const handlePrint = useReactToPrint({
         content: () => componentRef.current,
+        pageStyle: () => {''}
     });
 
     // Fetch Data
@@ -47,6 +54,72 @@ const AdminAccessDashboard = () => {
         })
     },[])
 
+    // Applicant's Experience
+    const fetchDataExperience = async (id) => {
+        setExperienceLoading(true)
+        await AxiosCustom.get(`/api/experience/show/${id}`)
+        .then(res => {
+            setExperience(res.data)
+            setLoading(false)
+
+            res.data.map((item, index)=>{
+                return (fetchDataJobdesc(item.id), fetchDataProject(item.id), fetchDataTool(item.id))
+            })
+            
+            setExperienceLoading(false)
+        },
+        error => {
+            console.error('Error Fetching Data : ',error)
+            setError(error)
+        })
+    }
+
+    const fetchDataJobdesc = async (id) => {
+        await AxiosCustom.get(`/api/jobdesc/show/${id}`)
+        .then(res => {
+            setJobdesc(jobdesc => [...jobdesc, res.data])
+        },
+        error => {
+            console.error('Error Fetching Data : ',error)
+            setError(error)
+        })
+    }
+
+    const fetchDataProject = async (id) => {
+        await AxiosCustom.get(`/api/projects/show/${id}`)
+        .then(res => {
+            setProjects(projects => [...projects, res.data])
+        },
+        error => {
+            console.error('Error Fetching Data : ',error)
+            setError(error)
+        })
+    }
+
+    const fetchDataTool = async (id) => {
+        await AxiosCustom.get(`/api/tools/show/${id}`)
+        .then(res => {
+            setTools(tools => [...tools, res.data])
+        },
+        error => {
+            console.error('Error Fetching Data : ',error)
+            setError(error)
+        })
+    }
+
+    // Capabilities
+    const fetchDataCapabilities = async (id) => {
+        await AxiosCustom.get(`/api/capabilities/show/${id}`)
+        .then(res => {
+            setCapabilities(res.data)
+            setLoading(false)
+        },
+        error => {
+            console.error('Error Fetching Data : ',error)
+            setError(error)
+        })
+    }
+
     // Use Effect
     useEffect(()=>{
         fetchData()
@@ -56,10 +129,15 @@ const AdminAccessDashboard = () => {
     const detailApplicant = async (id) => {
         handleShow()
         setModalLoading(true)
+        setJobdesc([])
+        setProjects([])
+        setTools([])
+
         await AxiosCustom.get(`/api/applicant/show/${id}`).then(res => {
             setApplicant(res.data.data[0])
-            console.log(applicant)
             setModalLoading(false)
+            fetchDataExperience(id)
+            fetchDataCapabilities(id)
         },
         error => {
             console.error('Error Fetching Data : ',error)
@@ -73,7 +151,6 @@ const AdminAccessDashboard = () => {
         setModalLoading(true)
         await AxiosCustom.get(`/api/applicant/show/${id}`).then(res => {
             setApplicant(res.data.data[0])
-            console.log(applicant)
             setModalLoading(false)
         },
         error => {
@@ -131,22 +208,23 @@ const AdminAccessDashboard = () => {
                             <th>#</th>
                             <th>Name</th>
                             <th>Email</th>
+                            <th>Applied Position</th>
                             <th>Latest Education</th>
-                            <th>Latest Work</th>
+                            <th>Latest Workplace</th>
                             <th>Birth Place & Date</th>
-                            <th colSpan={3}>Action</th>
+                            <th colSpan={2}>Action</th>
                         </tr>
                     </thead>
                     
-                    {loading ? <tbody><tr><td colSpan={7}><Loading/></td></tr></tbody> : 
-                    error ? <tbody><tr><td colSpan={7}>`Error : ${error}`</td></tr></tbody> : 
+                    {loading ? <tbody><tr><td colSpan={8}><Loading/></td></tr></tbody> : 
+                    error ? <tbody><tr><td colSpan={8}>`Error : ${error}`</td></tr></tbody> : 
                     applicants.length > 0 ? <Applicants applicants={applicants} onDetail={detailApplicant} onEdit={editApplicant} onDelete={deleteApplicant} /> : 
-                    <tbody><tr><td colSpan={7}><p className='mb-0'>No Applicant</p></td></tr></tbody>}
+                    <tbody><tr><td colSpan={8}><p className='mb-0'>No Applicant</p></td></tr></tbody>}
                     
                 </Table>
             </Container>
 
-            <div style={{ display: "none" }}><PDFTemplate componentRef={componentRef} applicant={applicant}/></div>
+            <div style={{ display: "none" }}><PDFTemplate componentRef={componentRef} applicant={applicant} experience={experience} jobdesc={jobdesc} projects={projects} tools={tools} capabilities={capabilities}/></div>
 
             {/* Modal Detail */}
             <Modal size="lg" show={show} onHide={handleClose}>
@@ -157,8 +235,9 @@ const AdminAccessDashboard = () => {
                         <Modal.Title>Data Applicant {applicant.id}</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <Table striped hover responsive className='w-75 mx-auto centered-table-content detail-table'>
-                            <tr >
+                        <Table striped hover responsive className='w-75 mx-auto detail-table toped-table-content'>
+                            <tr><td colSpan={3} className='text-center pt-3'><b>Data</b></td></tr>
+                            <tr>
                                 <th>Name</th>
                                 <td className='text-center pe-5'>:</td>
                                 <td>{applicant.name}</td>
@@ -193,25 +272,80 @@ const AdminAccessDashboard = () => {
                                 <td className='text-center pe-5'>:</td>
                                 <td>{applicant.latest_education+' ('+applicant.education_period+')'}</td>
                             </tr>
-                            <tr >
-                                <th>Latest Working Place</th>
-                                <td className='text-center pe-5'>:</td>
-                                <td>{applicant.latest_work+' ('+applicant.work_period+')'}</td>
-                            </tr>
-                            <tr >
-                                <th>Latest Work Position</th>
-                                <td className='text-center pe-5'>:</td>
-                                <td>{applicant.work_position}</td> 
-                            </tr>
-                            <tr >
-                                <th>Latest Work description</th>
-                                <td className='text-center pe-5'>:</td>
-                                <td>{applicant.work_description}</td> 
-                            </tr>
+                            <tr><td colSpan={3} className='text-center pt-3'><b>Working Experience</b></td></tr>
+                            {experienceLoading === true ? <tr><td colSpan={3}><Loading/></td></tr> : experience.length > 0 ? 
+                            experience.map((item, index)=>(
+                                <>
+                                    <tr >
+                                        <th>Working Place</th>
+                                        <td className='text-center pe-5'>:</td>
+                                        <td>{item.work_place+' ('+item.work_period+')'}</td>
+                                    </tr>
+                                    <tr >
+                                        <th>Position</th>
+                                        <td className='text-center pe-5'>:</td>
+                                        <td>{item.work_position}</td> 
+                                    </tr>
+                                    <tr >
+                                        <th>Work project</th>
+                                        <td className='text-center pe-5'>:</td>
+                                        <td>
+                                            <ul>
+                                                {projects.length > 0 ? 
+                                                projects.map((itempr, index)=>{
+                                                    return itempr.map((iteminpr, index)=>
+                                                    {   
+                                                        return iteminpr.experience_id === item.id ? <li>{iteminpr.work_project}</li> : ''
+                                                    })
+                                                }):'-'
+                                                } 
+                                            </ul>
+                                        </td> 
+                                    </tr>
+                                    <tr >
+                                        <th>Work tool</th>
+                                        <td className='text-center pe-5'>:</td>
+                                        <td>
+                                            <ul>
+                                                {tools.length > 0 ? 
+                                                tools.map((itemtl, index)=>{
+                                                    return itemtl.map((itemintl, index)=>
+                                                    {   
+                                                        return itemintl.experience_id === item.id ? <li>{itemintl.work_tool}</li> : ''
+                                                    })
+                                                }):'-'
+                                                } 
+                                            </ul>
+                                        </td> 
+                                    </tr>
+                                    <tr >
+                                        <th>Work description</th>
+                                        <td className='text-center pe-5'>:</td>
+                                        <td>
+                                            <ul>
+                                                {jobdesc.length > 0 ? 
+                                                jobdesc.map((itemjd, index)=>{
+                                                    return itemjd.map((iteminjd, index)=>
+                                                    {   
+                                                        return iteminjd.experience_id === item.id ? <li>{iteminjd.work_description}</li> : ''
+                                                    })
+                                                }):<Loading size='small'/> 
+                                                } 
+                                            </ul>
+                                        </td> 
+                                    </tr>
+                                </>
+                            )): ''}
+                            <tr><td colSpan={3} className='text-center pt-3'><b>IT Capabilities</b></td></tr>
                             <tr >
                                 <th>IT Capabilities</th>
                                 <td className='text-center pe-5'>:</td>
-                                <td>{applicant.it_capabilities}</td> 
+                                <td>
+                                    {capabilities.length > 0 ? 
+                                    capabilities.map((item, index)=>{
+                                        return index===0 ? <span>{item.capability}</span> : <span>, {item.capability}</span>  
+                                    }):<Loading size='small'/>}
+                                </td>
                             </tr>
                         </Table>
                     </Modal.Body>

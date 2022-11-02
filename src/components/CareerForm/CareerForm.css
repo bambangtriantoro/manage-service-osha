@@ -9,6 +9,36 @@
     margin-bottom: 20px;
 }
 
+.career-form .dot-container {
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+}
+
+.career-form .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #aaaaaa;
+}
+
+.career-form .dot.active {
+    background-color: #ff5e00;
+}
+
+.career-form table {
+    text-align: center;
+}
+
+.job-desc, .project, .tool {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
 @media screen and (max-width: 992px) {
     .career-form {
         padding: 50px 30px;

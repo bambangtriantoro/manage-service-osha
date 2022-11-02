@@ -19,13 +19,13 @@ class ApplicantEdit extends Component {
     status: this.props.applicant.status,
     education: this.props.applicant.latest_education,
     edufrom: this.props.applicant.education_period.slice(0, 4),
-    eduto: this.props.applicant.education_period.slice(5, 9),
-    workingexp: this.props.applicant.latest_work,
-    workfrom: this.props.applicant.work_period.slice(0, 4),
-    workto: this.props.applicant.work_period.slice(5, 9),
-    workingpos: this.props.applicant.work_position,
-    workingdesc: this.props.applicant.work_description,
-    capabilities: this.props.applicant.it_capabilities,
+    eduto: this.props.applicant.education_period.slice(5, 11),
+    // workingexp: this.props.applicant.latest_work,
+    // workfrom: this.props.applicant.work_period.slice(0, 4),
+    // workto: this.props.applicant.work_period.slice(5, 9),
+    // workingpos: this.props.applicant.work_position,
+    // workingdesc: this.props.applicant.work_description,
+    // capabilities: this.props.applicant.it_capabilities,
     loading: false
   }
 
@@ -294,64 +294,6 @@ class ApplicantEdit extends Component {
                   value={this.state.eduto}
                 />
               </div>
-            </Form.Group>
-            <Form.Group className="mb-3">
-              <Form.Label>Working Experience</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Latest Working Place"
-                name="workingexp"
-                onChange={this.handleChange}
-                value={this.state.workingexp}
-              />
-              <div className="d-flex gap-3 mt-3">
-                <Form.Control
-                  type="text"
-                  placeholder="Period From (Year)"
-                  name="workfrom"
-                  onChange={this.handleChange}
-                  onKeyDown={this.onlyNumberKey}
-                  value={this.state.workfrom}
-                />
-                <Form.Control
-                  type="text"
-                  placeholder="Period To (Year)"
-                  name="workto"
-                  onChange={this.handleChange}
-                  onKeyDown={this.onlyNumberKey}
-                  value={this.state.workto}
-                />
-              </div>
-              <Form.Control
-                className="mt-3"
-                type="text"
-                placeholder="Position"
-                name="workingpos"
-                onChange={this.handleChange}
-                value={this.state.workingpos}
-              />
-              <Form.Control
-                className="mt-3"
-                type="text"
-                placeholder="Job Description"
-                name="workingdesc"
-                onChange={this.handleChange}
-                value={this.state.workingdesc}
-              />
-            </Form.Group>
-            <Form.Group
-              className="mb-3"
-              controlId="exampleForm.ControlInput1"
-            >
-              <Form.Label>IT Capabilities</Form.Label>
-              <Form.Control
-                as="textarea"
-                placeholder="Your IT Capabilities such as programming language, frameworks and all"
-                name="capabilities"
-                size="md"
-                onChange={this.handleChange}
-                value={this.state.capabilities}
-              />
             </Form.Group>
             <Button
               type="button"

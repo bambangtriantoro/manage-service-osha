@@ -15,6 +15,30 @@
     p {
         margin: 0;
     }
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 10px;
+    }
+    
+    ul li {
+        display: grid;
+        grid-template-columns: 0 1fr;
+        gap: 20px;
+        align-items: start;
+        line-height: 1;
+    }
+
+    ul li::before {
+        content: '-';
+    }
+
+    .capitalize {
+        text-transform: capitalize;
+    }
 }
 
 @media print {
@@ -28,26 +52,31 @@
         font-size: 60px;
     }
     
+    .page-header .name::first-letter {
+        text-transform: uppercase;
+    }
+
     .page-header .position {
         font-size: 40px;
     }
 
     .page-body {
+        width: 100%;
         padding: 30px 0px;
+        padding-top: 0px;
         font-size: 18px;
     }
 
     .page-body table.table-bordered{
-        border:2px solid #3d3d3d;
-        margin-top:20px;
+        border: 2px solid #3d3d3d;
     }
     .page-body table.table-bordered > thead > tr > th{
         background-color: #222;
-        border:2px solid #3d3d3d;
+        border: 2px solid #3d3d3d;
         padding: 3px 5px;
     }
     .page-body table.table-bordered > tbody > tr > td{
-        border:2px solid #3d3d3d;
+        border: 2px solid #3d3d3d;
         padding: 3px 5px;
     }
 
@@ -58,6 +87,7 @@
     .page-footer {
         position: fixed;
         bottom: 0;
+        height: auto;
     }
 
     .footer-text {
@@ -71,6 +101,23 @@
         margin: 0;
         padding: 0;
     }
+
+    .header-space {
+        height: 50px;
+        border-bottom: solid 1.5px #3d3d3d;
+    }
+
+    .footer-space {
+        height: 100px;
+    }
+    
+    .table-title {
+        font-style: italic;
+        color: #fbfbfb;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+
 }
 
 @page {
