@@ -53,8 +53,8 @@ const AdminAccessDashboard = () => {
             setError(error)
         })
     },[])
-
-    // Applicant's Experience
+    
+    // Applicant's Experience 
     const fetchDataExperience = async (id) => {
         setExperienceLoading(true)
         await AxiosCustom.get(`/api/experience/show/${id}`)
@@ -291,11 +291,12 @@ const AdminAccessDashboard = () => {
                                         <td className='text-center pe-5'>:</td>
                                         <td>
                                             <ul>
+                                                {console.log('projects',projects)}
                                                 {projects.length > 0 ? 
                                                 projects.map((itempr, index)=>{
                                                     return itempr.map((iteminpr, index)=>
                                                     {   
-                                                        return iteminpr.experience_id === item.id ? <li>{iteminpr.work_project}</li> : ''
+                                                        return parseInt(iteminpr.experience_id) === item.id ? <li>{iteminpr.work_project}</li> : ''
                                                     })
                                                 }):'-'
                                                 } 
@@ -311,7 +312,7 @@ const AdminAccessDashboard = () => {
                                                 tools.map((itemtl, index)=>{
                                                     return itemtl.map((itemintl, index)=>
                                                     {   
-                                                        return itemintl.experience_id === item.id ? <li>{itemintl.work_tool}</li> : ''
+                                                        return parseInt(itemintl.experience_id) === item.id ? <li>{itemintl.work_tool}</li> : ''
                                                     })
                                                 }):'-'
                                                 } 
@@ -327,7 +328,7 @@ const AdminAccessDashboard = () => {
                                                 jobdesc.map((itemjd, index)=>{
                                                     return itemjd.map((iteminjd, index)=>
                                                     {   
-                                                        return iteminjd.experience_id === item.id ? <li>{iteminjd.work_description}</li> : ''
+                                                        return parseInt(iteminjd.experience_id) === item.id ? <li>{iteminjd.work_description}</li> : ''
                                                     })
                                                 }):<Loading size='small'/> 
                                                 } 

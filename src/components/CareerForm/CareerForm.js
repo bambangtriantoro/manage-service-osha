@@ -1,4 +1,4 @@
-import "./CareerForm.css";
+import "./CareerForm.css";  
 import React, { Component, useState } from "react";
 import { Col, Container, Form, Row, Button, Table } from "react-bootstrap";
 import { AiOutlinePlus } from "react-icons/ai";
@@ -265,9 +265,9 @@ class CareerForm extends Component {
   };
 
   // Get Experience Data
-  fetchDataExperience = () => {
-    AxiosCustom.get('/api/experience/')
-    .then(res => {
+  fetchDataExperience = async () => {
+    await AxiosCustom.get('/api/experience')
+    .then((res) => {
       this.setState({workingexpdata: res.data})
     },
     error => {
@@ -290,9 +290,9 @@ class CareerForm extends Component {
           this.addJobdesc()
           this.addProject()
           this.addTool()
+          this.fetchDataExperience()
           this.form.reset()
           this.setState({loading: false})
-          this.fetchDataExperience()
         }
       },
       error => {
@@ -347,8 +347,8 @@ class CareerForm extends Component {
   }
 
   // Get Capabilties Data
-  fetchDataCapabilities = () => {
-    AxiosCustom.get('/api/capabilities/')
+  fetchDataCapabilities = async () => {
+    await AxiosCustom.get('/api/capabilities')
     .then(res => {
         this.setState({workingexpdata: res.data})
         this.setState({loading: false})

@@ -4,13 +4,6 @@
     .page-break {
         display: none;
     }
-}
-
-@media print {
-    html, body {
-        height: initial !important;
-        overflow: initial !important;
-    }
 
     p {
         margin: 0;
@@ -42,6 +35,13 @@
 }
 
 @media print {
+    html, body {
+        height: initial !important;
+        overflow: initial !important;
+    }
+}
+
+@media print {
     .page-break {
         margin-top: 1rem;
         display: block;
@@ -50,10 +50,7 @@
 
     .page-header .name {
         font-size: 60px;
-    }
-    
-    .page-header .name::first-letter {
-        text-transform: uppercase;
+        text-transform: capitalize;
     }
 
     .page-header .position {
@@ -62,8 +59,6 @@
 
     .page-body {
         width: 100%;
-        padding: 30px 0px;
-        padding-top: 0px;
         font-size: 18px;
     }
 
@@ -101,14 +96,35 @@
         margin: 0;
         padding: 0;
     }
+    
+    thead {
+        height: 100px;
+        background-color: transparent;
+    }
+    
+    thead tr td:first-of-type {
+        padding-bottom: 0px;
+    }
 
     .header-space {
-        height: 50px;
-        border-bottom: solid 1.5px #3d3d3d;
+        height: 0px;
+    }
+
+    tbody {
+        background-color: transparent;
+    }
+
+    tfoot {
+        height: 130px;
+        background-color: transparent;
+    }
+
+    tfoot tr td:first-of-type {
+        padding-top: 0px;
     }
 
     .footer-space {
-        height: 100px;
+        height: 0px;
     }
     
     .table-title {
@@ -117,7 +133,6 @@
         margin-bottom: 0;
         padding-bottom: 0;
     }
-
 }
 
 @page {

@@ -24,18 +24,19 @@ const index = ({componentRef, applicant, experience, jobdesc, projects, tools, c
             <Container>
                 <table className='w-100'>
                     <thead><tr><td>
-                        <div class="header-space"> </div>
+                        <div className="header-space"></div>
                     </td></tr></thead>
+
                     <tbody><tr><td>
-                        <div class="content">
+                        <div className="content">
                             <div className='page-body'>
                                 <Table bordered>
                                     <tbody>
                                         <tr>
                                             <th colSpan='2' className='text-light bg-dark'>
                                                 <div className='d-flex justify-content-between align-items-center w-100'>
-                                                    <h5 className='table-title'>PERSONAL DETAILS</h5> 
-                                                    <FaUser size={25} />
+                                                    <h6 className='table-title'>PERSONAL DETAILS</h6> 
+                                                    <FaUser size={20} />
                                                 </div>
                                             </th>
                                         </tr>
@@ -64,7 +65,7 @@ const index = ({componentRef, applicant, experience, jobdesc, projects, tools, c
                                             <td>{ applicant.status }</td>
                                         </tr>
                                         <tr>
-                                            <th colSpan='2' className='text-light bg-dark'><div className='d-flex justify-content-between align-items-center'><h5 className='table-title'>FORMAL EDUCATION</h5> <FaGraduationCap size={35} /></div></th>
+                                            <th colSpan='2' className='text-light bg-dark'><div className='d-flex justify-content-between align-items-center'><h6 className='table-title'>FORMAL EDUCATION</h6> <FaGraduationCap size={25} /></div></th>
                                         </tr>
                                         <tr>
                                             <td>{ applicant.education_period }</td>
@@ -73,14 +74,13 @@ const index = ({componentRef, applicant, experience, jobdesc, projects, tools, c
                                     </tbody>
                                 </Table>
 
-                            
                                 <Table bordered>
                                     <tbody>
                                         <tr>
                                             <th colSpan='2' className='text-light bg-dark'>
                                                 <div className='d-flex justify-content-between align-items-center'>
-                                                    <h5 className='table-title'>WORKING EXPERIENCES</h5>
-                                                    <FaSuitcase size={25} /> 
+                                                    <h6 className='table-title'>WORKING EXPERIENCES</h6>
+                                                    <FaSuitcase size={20} /> 
                                                 </div>
                                             </th>
                                         </tr>
@@ -102,7 +102,7 @@ const index = ({componentRef, applicant, experience, jobdesc, projects, tools, c
                                                     <td>Projects</td>
                                                     <td>
                                                         <ul className='jobdesc-list'>
-                                                            { projects.map((itempr,i)=>{return itempr.map((iteminpr,i)=>{return iteminpr.experience_id===item.id ? <li className='capitalize'>{iteminpr.work_project}</li> : ''})}) }
+                                                            { projects.map((itempr,i)=>{return itempr.map((iteminpr,i)=>{return parseInt(iteminpr.experience_id)===item.id ? <li className='capitalize'>{iteminpr.work_project}</li> : ''})}) }
                                                         </ul>
                                                     </td>
                                                 </tr>
@@ -110,7 +110,7 @@ const index = ({componentRef, applicant, experience, jobdesc, projects, tools, c
                                                     <td>Tools</td>
                                                     <td>
                                                         <ul className='jobdesc-list'>
-                                                            { tools.map((itemtl,i)=>{return itemtl.map((itemintl,i)=>{return itemintl.experience_id===item.id ? <li className='capitalize'>{itemintl.work_tool}</li> : ''})}) }
+                                                            { tools.map((itemtl,i)=>{return itemtl.map((itemintl,i)=>{return parseInt(itemintl.experience_id)===item.id ? <li className='capitalize'>{itemintl.work_tool}</li> : ''})}) }
                                                         </ul>
                                                     </td>
                                                 </tr>
@@ -118,7 +118,7 @@ const index = ({componentRef, applicant, experience, jobdesc, projects, tools, c
                                                     <td>Job Desc</td>
                                                     <td>
                                                         <ul className='jobdesc-list'>
-                                                            { jobdesc.map((itemjd,i)=>{return itemjd.map((iteminjd,i)=>{return iteminjd.experience_id===item.id ? <li className='capitalize'>{iteminjd.work_description}</li> : ''})}) }
+                                                            { jobdesc.map((itemjd,i)=>{return itemjd.map((iteminjd,i)=>{return parseInt(iteminjd.experience_id)===item.id ? <li className='capitalize'>{iteminjd.work_description}</li> : ''})}) }
                                                         </ul>
                                                     </td>
                                                 </tr>
@@ -127,14 +127,13 @@ const index = ({componentRef, applicant, experience, jobdesc, projects, tools, c
                                     </tbody>
                                 </Table>
 
-                            
                                 <Table bordered>
                                     <tbody>
                                         <tr>
                                             <th colSpan='2' className='text-light bg-dark'>
                                                 <div className='d-flex justify-content-between align-items-center'>
-                                                    <h5 className='table-title'>TECHNICAL SKILLS</h5>
-                                                    <BsFillGearFill size={25} />
+                                                    <h6 className='table-title'>TECHNICAL SKILLS</h6>
+                                                    <BsFillGearFill size={20} />
                                                 </div>
                                             </th>
                                         </tr>
@@ -149,7 +148,7 @@ const index = ({componentRef, applicant, experience, jobdesc, projects, tools, c
                     </td></tr></tbody>
 
                     <tfoot><tr><td>
-                        <div class="footer-space"> </div>
+                        <div className="footer-space"></div>
                     </td></tr></tfoot>
                 </table>
             </Container>
