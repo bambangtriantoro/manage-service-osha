@@ -1,6 +1,6 @@
-import productSolution from '../../assets/Flaticon/technology-product.png'
-import projectSolution from '../../assets/Flaticon/flowchart.png'
-import manageService from '../../assets/Flaticon/flowchart(1).png'
+import productSolution from '../../assets/icon/app_icon.png'
+import projectSolution from '../../assets/icon/project_icon.png'
+import manageService from '../../assets/icon/manage_service_icon.png'
 
 export {
     productSolution,

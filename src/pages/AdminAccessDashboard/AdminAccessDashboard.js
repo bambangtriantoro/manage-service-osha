@@ -47,6 +47,7 @@ const AdminAccessDashboard = () => {
         .then(res => {
             setApplicants(res.data)
             setLoading(false)
+            console.log(res)
         },
         error => {
             console.error('Error Fetching Data : ',error)
@@ -212,14 +213,15 @@ const AdminAccessDashboard = () => {
                             <th>Latest Education</th>
                             <th>Latest Workplace</th>
                             <th>Birth Place & Date</th>
+                            <th>Total Experience</th>
                             <th colSpan={2}>Action</th>
                         </tr>
                     </thead>
                     
-                    {loading ? <tbody><tr><td colSpan={8}><Loading/></td></tr></tbody> : 
-                    error ? <tbody><tr><td colSpan={8}>`Error : ${error}`</td></tr></tbody> : 
+                    {loading ? <tbody><tr><td colSpan={9}><Loading/></td></tr></tbody> : 
+                    error ? <tbody><tr><td colSpan={9}>`Error : ${error}`</td></tr></tbody> : 
                     applicants.length > 0 ? <Applicants applicants={applicants} onDetail={detailApplicant} onEdit={editApplicant} onDelete={deleteApplicant} /> : 
-                    <tbody><tr><td colSpan={8}><p className='mb-0'>No Applicant</p></td></tr></tbody>}
+                    <tbody><tr><td colSpan={9}><p className='mb-0'>No Applicant</p></td></tr></tbody>}
                     
                 </Table>
             </Container>

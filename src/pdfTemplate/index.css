@@ -4,6 +4,13 @@
     .page-break {
         display: none;
     }
+}
+
+@media print {
+    html, body {
+        height: initial !important;
+        overflow: initial !important;
+    }
 
     p {
         margin: 0;
@@ -31,13 +38,6 @@
 
     .capitalize {
         text-transform: capitalize;
-    }
-}
-
-@media print {
-    html, body {
-        height: initial !important;
-        overflow: initial !important;
     }
 }
 

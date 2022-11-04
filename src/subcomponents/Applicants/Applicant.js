@@ -12,6 +12,7 @@ const Applicant = ({index, applicant, onDetail, onEdit, onDelete}) => {
         <td>{applicant.latest_education}</td>
         <td>{applicant.latest_work}</td>
         <td>{`${applicant.birthPlace}, ${applicant.birthDate}`}</td>
+        <td>{applicant.total_exp} {parseInt(applicant.total_exp) > 1 ? 'Years' : 'Year'}</td>
         <td><Button onClick={()=>{onDetail(applicant.applicantID)}}><BsSearch /></Button></td>
         {/* <td><Button onClick={()=>{onEdit(applicant.applicantID)}}><BsPencilSquare /></Button></td> */}
         <td><Button onClick={()=>{onDelete(applicant.applicantID)}}><BsTrash /></Button></td>

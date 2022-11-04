@@ -23,13 +23,13 @@ const WhoWeAre = () => {
             </Col>
             <Col data-aos='fade-up' data-aos-delay='300'>
                 <div className='img-container'>
-                    <img src={whoweare3} alt='who we are 3' width={90}/>
+                    <img src={whoweare2} alt='who we are 2' width={90}/>
                 </div>
                 <p>Close collaboration with customers to enhance,accelerate business performance and create tangible values.</p>
             </Col>
             <Col data-aos='fade-up' data-aos-delay='600'>
                 <div className='img-container'>
-                    <img src={whoweare2} alt='who we are 2' width={90}/>
+                    <img src={whoweare3} alt='who we are 3' width={90}/>
                 </div>
                 <p>We have consultants and developers who can mobilize the right people, skills, tools and technology to deliver innovation. </p>
             </Col>
