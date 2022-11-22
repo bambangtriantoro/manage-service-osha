@@ -1,7 +1,8 @@
 import "./CareerForm.css";  
 import React, { Component, useState } from "react";
-import { Col, Container, Form, Row, Button, Table } from "react-bootstrap";
+import { Col, Container, Form, Row, Button, Table, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { AiOutlinePlus } from "react-icons/ai";
+import { BsInfoCircle } from "react-icons/bs";
 import { AxiosCustom } from "../../config";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -13,17 +14,17 @@ import Loading from "../../subcomponents/Loading/Loading";
 
 const workingdescinput = [{
   type: "text",
-  id: 1,
+  id: 'workingdesc1',
   value: ""
 }]
 const workingprojectinput = [{
   type: "text",
-  id: 1,
+  id: 'workingproject1',
   value: ""
 }]
 const workingtoolinput = [{
   type: "text",
-  id: 1,
+  id: "workingtool1",
   value: ""
 }]
 
@@ -74,10 +75,24 @@ class CareerForm extends Component {
     this.submitForm()
   }
 
-  componentDidUpdate() {
-    console.log('jobdesc',this.state['workingdescarray']);
-    console.log('project',this.state['workingprojectarray']);
-    console.log('tool',this.state['workingtoolarray']);
+  componentDidUpdate(prevProps, prevState) {
+    if(prevState['workingdescarray'].length < this.state['workingdescarray'].length) {
+      let lastId = this.state['workingdescarray'][this.state['workingdescarray'].length - 1].id;
+      lastId = parseInt(lastId.replace(/\D/g,''))
+      document.getElementById('workingdesc'+lastId).focus()
+    }
+
+    if(prevState['workingprojectarray'].length < this.state['workingprojectarray'].length) {
+      let lastId = this.state['workingprojectarray'][this.state['workingprojectarray'].length - 1].id;
+      lastId = parseInt(lastId.replace(/\D/g,''))
+      document.getElementById('workingproject'+lastId).focus()
+    }
+
+    if(prevState['workingtoolarray'].length < this.state['workingtoolarray'].length) {
+      let lastId = this.state['workingtoolarray'][this.state['workingtoolarray'].length - 1].id;
+      lastId = parseInt(lastId.replace(/\D/g,''))
+      document.getElementById('workingtool'+lastId).focus()
+    }
   }
 
   // Reset State Function
@@ -119,47 +134,50 @@ class CareerForm extends Component {
   };
 
   // Add Input
-  addInputJobDesc = () => {
-    const lastId = this.state['workingdescarray'][this.state['workingdescarray'].length - 1].id;
+  addInputJobDesc = async () => {
+    var lastId = this.state['workingdescarray'][this.state['workingdescarray'].length - 1].id;
+    lastId = parseInt(lastId.replace(/\D/g,''))
     this.setState({
       workingdescarray : [
         ...this.state['workingdescarray'],
         {
           type: "text",
-          id: lastId+1,
+          id: "workingdesc"+(lastId+1),
           value: ""
         }
       ]
     })
   };
-  addInputProject = () => {
-    const lastId = this.state['workingprojectarray'][this.state['workingprojectarray'].length - 1].id;
+  addInputProject = async () => {
+    var lastId = this.state['workingprojectarray'][this.state['workingprojectarray'].length - 1].id;
+    lastId = parseInt(lastId.replace(/\D/g,''))
     this.setState({
       workingprojectarray : [
         ...this.state['workingprojectarray'],
         {
           type: "text",
-          id: lastId+1,
+          id: "workingproject"+(lastId+1),
           value: ""
         }
       ]
     })
   };
-  addInputTool = () => {
-    const lastId = this.state['workingtoolarray'][this.state['workingtoolarray'].length - 1].id;
+  addInputTool = async () => {
+    var lastId = this.state['workingtoolarray'][this.state['workingtoolarray'].length - 1].id;
+    lastId = parseInt(lastId.replace(/\D/g,''))
     this.setState({
       workingtoolarray : [
         ...this.state['workingtoolarray'],
         {
           type: "text",
-          id: lastId+1,
+          id: "workingtool"+(lastId+1),
           value: ""
         }
       ]
     })
   };
 
-  addInputCapabilities = () => {
+  addInputCapabilities = async () => {
     const lastId = this.state['capabilities'].length>0?this.state['capabilities'][this.state['capabilities'].length - 1].id:0;
     
     if(this.state['capability'] === ""){
@@ -188,7 +206,8 @@ class CareerForm extends Component {
   handleChangeMultiple = (e, statename) => {
     e.preventDefault();
 
-    const index = e.target.id;
+    var index = e.target.id;
+    index = parseInt(index.replace(/\D/g,''))
     const newArr = this.state[statename].slice();
     newArr[index-1].value = e.target.value;
     if(statename === 'workingdescarray') {
@@ -204,7 +223,7 @@ class CareerForm extends Component {
   };
 
   // Submit Form Function
-  submitForm = () => {
+  submitForm =  async () => {
     if(this.state['step'] === 1) {
       this.addNewApplicant();
     } else if(this.state['step'] === 2) {
@@ -213,14 +232,16 @@ class CareerForm extends Component {
         this.step3.current.style.display = 'block';
         this.step1.current.style.display = 'none';
         this.setState({step: 3})
+        this.props.scrollToCareerElement()
       } else {
-        this.HandleClickWarning('Please add some experience')
+        this.HandleClickWarning('Please add some another experience')
       }
     } else if(this.state['step'] === 3) {
       if(this.state['capabilities'].length > 0){ 
         this.addNewCapability()
+        this.props.scrollToCareerElement()
       } else {
-        this.HandleClickWarning('Please add some capabilities')
+        this.HandleClickWarning('Please add some another capabilities')
       }
     } else {
       this.step1.current.style.display = 'block';
@@ -231,7 +252,7 @@ class CareerForm extends Component {
   }
 
   // Apply Function
-  addNewApplicant = () => {
+  addNewApplicant = async () => {
     this.setState({loading: true})
 
     const validate = Object.keys(this.state).map((key) => {
@@ -241,7 +262,9 @@ class CareerForm extends Component {
       return true
     })
 
-    if (!validate.includes(false)) {
+    const periodValidate = this.periodValidation('eduperiod')
+
+    if (!validate.includes(false) && periodValidate !== false) {
       AxiosCustom.post("/api/applicant/store", this.state)
       .then((res) => {
         if(res.data.success === false) {
@@ -252,6 +275,7 @@ class CareerForm extends Component {
           this.step2.current.style.display = 'block';
           this.step3.current.style.display = 'none';
           this.setState({step: 2})
+          this.props.scrollToCareerElement()
         }
       },
       error => {
@@ -279,9 +303,48 @@ class CareerForm extends Component {
   addNewExperience = async () => {
     this.setState({loading: true})
 
-    if(this.state['workingexp']==='' || this.state['workfrom']==='' || this.state['workto']==='' || this.state['workingpos']==='' || this.state['workingdescarray'][0].value === '') {
-      this.HandleClickWarning();
-    } else {
+    const validate = () => {
+      if(this.state['workingexp']==='' || this.state['workfrom']==='' || this.state['workto']==='' || this.state['workingpos']==='') {
+        this.HandleClickWarning();
+        return false
+      }
+      
+      return true
+    }
+
+    const validateMultiple = () => {
+      let workingdescFilled = 0
+      this.state['workingdescarray'].forEach((item, i) => {
+        if(item.value !== '') {
+          workingdescFilled = workingdescFilled + 1
+        }
+      })
+
+      let workingprojectFilled = 0
+      this.state['workingprojectarray'].forEach((item, i) => {
+        if(item.value !== '') {
+          workingprojectFilled = workingprojectFilled + 1
+        }
+      })
+
+      let workingtoolFilled = 0
+      this.state['workingtoolarray'].forEach((item, i) => {
+        if(item.value !== '') {
+          workingtoolFilled = workingtoolFilled + 1
+        }
+      })
+
+      if(workingdescFilled > 0 && workingprojectFilled > 0 && workingtoolFilled > 0) {
+        return true
+      }
+
+      this.HandleClickWarning('Please add at least one for project, tool and jobdesc')
+      return false
+    }
+
+    console.log(this.state['workingdescarray'])
+
+    if(validate() !== false && this.periodValidation('workperiod') !== false && validateMultiple() !== false) {
       AxiosCustom.post("/api/experience/store", this.state)
       .then((res) => {
         if(res.data.success === false) {
@@ -292,7 +355,8 @@ class CareerForm extends Component {
           this.addTool()
           this.fetchDataExperience()
           this.form.reset()
-          this.setState({loading: false})
+          this.setState({loading: false, workingexp:'', workfrom:'', workto:'', workingpos:''})
+          this.props.scrollToCareerElement()
         }
       },
       error => {
@@ -302,12 +366,18 @@ class CareerForm extends Component {
   };
 
   // Add Jobdesc
-  addJobdesc = () => {
+  addJobdesc = async () => {
     AxiosCustom.post("/api/jobdesc/store", this.state)
     .then((res) => {
       if(res.data.success === false) {
         this.HandleClickWarning("Form Error, send CV to email instead.");
       } else {
+        const workingdescinput = [{
+          type: "text",
+          id: 'workingdesc1',
+          value: ""
+        }]
+
         this.setState({workingdescarray: workingdescinput})
       }
     },
@@ -317,12 +387,18 @@ class CareerForm extends Component {
   }
 
   // Add Project
-  addProject = () => {
+  addProject = async () => {
     AxiosCustom.post("/api/projects/store", this.state)
     .then((res) => {
       if(res.data.success === false) {
         this.HandleClickWarning("Form Error, send CV to email instead.");
       } else {
+        const workingprojectinput = [{
+          type: "text",
+          id: 'workingproject1',
+          value: ""
+        }]
+
         this.setState({workingprojectarray: workingprojectinput})
       }
     },
@@ -332,12 +408,17 @@ class CareerForm extends Component {
   }
 
   // Add Tool
-  addTool = () => {
+  addTool = async () => {
     AxiosCustom.post("/api/tools/store", this.state)
     .then((res) => {
       if(res.data.success === false) {
         this.HandleClickWarning("Form Error, send CV to email instead.");
       } else {
+        const workingtoolinput = [{
+          type: "text",
+          id: "workingtool1",
+          value: ""
+        }]
         this.setState({workingtoolarray: workingtoolinput})
       }
     },
@@ -470,6 +551,42 @@ class CareerForm extends Component {
     }
     console.log(evt.which);
     console.log(evt.keyCode);
+  }
+
+  // Period Validation
+  periodValidation(periodname) {
+      if (periodname === 'eduperiod') {
+        if(parseInt(this.state['eduto']) < parseInt(this.state['edufrom'])) {
+          this.HandleClickWarning("Period to cannot be less than period from")
+          return false
+        }
+      } else if (periodname === 'workperiod') {
+        if(parseInt(this.state['workto']) < parseInt(this.state['workfrom'])) {
+          this.HandleClickWarning("Period to cannot be less than period from")
+          return false
+        }
+      } else {
+        console.log('Period validate '+periodname)
+      }
+  }
+
+  // Field Enter Pressed
+  fieldEnterPressed = async (evt, field) => {
+    var ASCIICode = evt.which ? evt.which : evt.keyCode;
+    if (ASCIICode === 13) {
+      evt.preventDefault()
+      if (field === 'workingproject') {
+        this.addInputProject() 
+      } else if (field === 'workingtool') {
+        this.addInputTool()
+      } else if (field === 'workingdesc') {
+        this.addInputJobDesc()
+      } else if (field === 'capabilities') {
+        this.addInputCapabilities()
+      } else {
+        console.log(field+'field is enter pressed')
+      }
+    }
   }
 
   // Create PDF then send it to email with nodeJS
@@ -609,20 +726,22 @@ class CareerForm extends Component {
                   />
                   <div className="d-flex gap-3 mt-3">
                     <Form.Control
-                      type="text"
+                      type="number"
                       placeholder="Period From (Year)"
                       name="edufrom"
                       onChange={this.handleChange}
                       onKeyDown={this.onlyNumberKey}
                       pattern="[0-9]*"
+                      id="edufrom"
                     />
                     <Form.Control
-                      type="text"
+                      type="number"
                       placeholder="Period To (Year)"
                       name="eduto"
                       onChange={this.handleChange}
                       onKeyDown={this.onlyNumberKey}
                       pattern="[0-9]*"
+                      id="eduto"
                     />
                   </div>
                 </Form.Group>
@@ -638,22 +757,30 @@ class CareerForm extends Component {
                       </tr>
                     </thead>
                     <tbody>
-                    {this.state['workingexpdata'].map((item, i) => {
-                      return (
-                        <tr>
-                          <td>{item.work_place}</td>
-                          <td>{item.work_period}</td>
-                          <td>{item.work_position}</td>
-                        </tr>
-                      );
-                    })}
+                    {
+                      this.state['workingexpdata'].length > 0 
+                      ?this.state['workingexpdata'].map((item, i) => {
+                        return (
+                          <tr>
+                            <td>{item.work_place}</td>
+                            <td>{item.work_period}</td>
+                            <td>{item.work_position}</td>
+                          </tr>
+                        );
+                      })
+                      :(
+                          <tr>
+                            <td colSpan={3} className='text-muted'>Your added experience will show here</td>
+                          </tr>
+                      )
+                    }
                     </tbody>
                 </Table>
                 <Form.Group className="mb-3">
-                  <Form.Label>Working Experience</Form.Label>
+                  <Form.Label>Add Your Working Experience</Form.Label>
                   <Form.Control
                     type="text"
-                    placeholder="Latest Working Place"
+                    placeholder="Working Place"
                     name="workingexp"
                     onChange={this.handleChange}
                   />
@@ -664,6 +791,7 @@ class CareerForm extends Component {
                       name="workfrom"
                       onChange={this.handleChange}
                       onKeyDown={this.onlyNumberKey}
+                      id='workfrom'
                     />
                     <Form.Control
                       type="text"
@@ -671,6 +799,7 @@ class CareerForm extends Component {
                       name="workto"
                       onChange={this.handleChange}
                       onKeyDown={this.onlyNumberKey}
+                      id='workto'
                     />
                   </div>
                   <Form.Control
@@ -682,7 +811,17 @@ class CareerForm extends Component {
                   />
                   {/* project */}
                   <div className="project">
-                    <Form.Label>Worked Project</Form.Label>
+                    <OverlayTrigger
+                      placement="right"
+                      delay={{ show: 100, hide: 500 }}
+                      overlay={
+                        <Tooltip>
+                          <span>Press the <b>plus button</b> on the rightside or press <b>enter</b> on the field to add some another fields, feel free to add, empty field won't count</span>
+                        </Tooltip>
+                      }
+                    >
+                      <Form.Label>Worked Project <BsInfoCircle /></Form.Label>
+                    </OverlayTrigger>
                     <Button size='sm' type='button' onClick={()=>{this.addInputProject()}}><AiOutlinePlus /></Button>
                   </div>
                   {this.state['workingprojectarray'].map((item, i) => {
@@ -693,13 +832,24 @@ class CareerForm extends Component {
                         placeholder="Project"
                         name="workingproject"
                         onChange={e => this.handleChangeMultiple(e,'workingprojectarray')}
+                        onKeyDown={e => this.fieldEnterPressed(e, 'workingproject')}
                         id={item.id}
                       />
                     );
                   })}
                   {/* tool */}
                   <div className="tool">
-                    <Form.Label>Used Tool</Form.Label>
+                    <OverlayTrigger
+                      placement="right"
+                      delay={{ show: 100, hide: 500 }}
+                      overlay={
+                        <Tooltip>
+                          <span>Press the <b>plus button</b> on the rightside or press <b>enter</b> on the field to add some another fields, feel free to add, empty field won't count</span>
+                        </Tooltip>
+                      }
+                    >
+                      <Form.Label>Used Tool <BsInfoCircle /></Form.Label>
+                    </OverlayTrigger>
                     <Button size='sm' type='button' onClick={()=>{this.addInputTool()}}><AiOutlinePlus /></Button>
                   </div>
                   {this.state['workingtoolarray'].map((item, i) => {
@@ -710,13 +860,24 @@ class CareerForm extends Component {
                         placeholder="Tool Name"
                         name="workingtool"
                         onChange={e => this.handleChangeMultiple(e, 'workingtoolarray')}
+                        onKeyDown={e => this.fieldEnterPressed(e, 'workingtool')}
                         id={item.id}
                       />
                     );
                   })}
                   {/* jobdesc */}
                   <div className="job-desc">
-                    <Form.Label>Job Description</Form.Label>
+                    <OverlayTrigger
+                      placement="right"
+                      delay={{ show: 100, hide: 500 }}
+                      overlay={
+                        <Tooltip>
+                          <span>Press the <b>plus button</b> on the rightside or press <b>enter</b> on the field to add some another fields, feel free to add, empty field won't count</span>
+                        </Tooltip>
+                      }
+                    >
+                      <Form.Label>Job Description <BsInfoCircle /></Form.Label>
+                    </OverlayTrigger>
                     <Button size='sm' type='button' onClick={()=>{this.addInputJobDesc()}}><AiOutlinePlus /></Button>
                   </div>
                   {this.state['workingdescarray'].map((item, i) => {
@@ -727,6 +888,7 @@ class CareerForm extends Component {
                         placeholder="Job Description"
                         name="workingdesc"
                         onChange={e => this.handleChangeMultiple(e,'workingdescarray')}
+                        onKeyDown={e => this.fieldEnterPressed(e, 'workingdesc')}
                         id={item.id}
                       />
                     );
@@ -749,12 +911,14 @@ class CareerForm extends Component {
                           IT Capabilities :
                         </td>
                         <td>
-                        {this.state['capabilities'].length>0 ? 
-                          this.state['capabilities'].map((item, i) => {
+                        {
+                          this.state['capabilities'].length>0 
+                          ?this.state['capabilities'].map((item, i) => {
                             return (
                               <>{i===0 ? item.value:', '+item.value}</>
                             );
-                        }):'...'
+                          })
+                          :<p className="text-muted">Your added capabilities will show here</p>
                         }
                         </td>
                       </tr>
@@ -766,6 +930,7 @@ class CareerForm extends Component {
                     name="capability"
                     size="md"
                     onChange={this.handleChange}
+                    onKeyDown={e => this.fieldEnterPressed(e, 'capabilities')}
                   />
                   <Button type="button" className="mt-3 w-100" onClick={()=>this.addInputCapabilities()}> Add Capability </Button>
                 </Form.Group>

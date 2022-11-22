@@ -39,6 +39,15 @@
     margin-bottom: 10px;
 }
 
+.label-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.label-container span {
+    font-size: 13px;
+}
+
 @media screen and (max-width: 992px) {
     .career-form {
         padding: 50px 30px;
