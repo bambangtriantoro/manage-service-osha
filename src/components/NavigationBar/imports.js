@@ -4,12 +4,12 @@ import LogoOshaFull from '../../assets/images/LOGO OSHA FULL ORANGE.png'
 import oranye from '../../assets/images/oranye.png'
 import lemon from '../../assets/images/lemon.png'
 import easybi from '../../assets/images/easybi.png'
-import websiteSolution from '../../assets/images/www-amico.png'
-import mobileSolution from '../../assets/images/Mobile apps-amico.png'
-import customSolution from '../../assets/images/Advanced customization-amico.png'
-import biSolution from '../../assets/images/Competitive intelligence-amico.png'
-import professionalService from '../../assets/images/Hired-pana.png'
-import itbootcamp from '../../assets/images/Happy student-pana.png'
+import websiteSolution from '../../assets/illustration/websitesol.png'
+import mobileSolution from '../../assets/illustration/mobilesol.png'
+import customSolution from '../../assets/illustration/customsol.png'
+import biSolution from '../../assets/illustration/bisol.png'
+import professionalService from '../../assets/illustration/professional.png'
+import itbootcamp from '../../assets/illustration/bootcamp.png'
 
 export {
     LogoOsha,

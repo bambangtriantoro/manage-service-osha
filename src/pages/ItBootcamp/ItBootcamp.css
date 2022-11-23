@@ -1,53 +1,60 @@
 .itbootcamp {
-    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.6) 80%, rgba(255,255,255,0.3) 100%), url(https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEyfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60);
-    background-size: cover;
-    background-position: center;
+  background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0.6) 80%,
+      rgba(255, 255, 255, 0.3) 100%
+    ),
+    url(https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEyfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60);
+  background-size: cover;
+  background-position: center;
 }
 
 .itbootcamp h2 {
-    font-size: 50px;
-    font-weight: 600;
+  font-size: 50px;
+  font-weight: 600;
 }
 
 .itbootcamp p {
-    font-size: 18px;
+  font-size: 18px;
 }
 
 .itbootcamp p span {
-    font-weight: 300;
+  font-weight: 300;
 }
 
 .itbootcamp .img-container-itb {
-    width: 43%;
-    background-color: #00d46a;
-    padding: 40px;
-    border-radius: 50%;
+  width: 43%;
+  background-color: #00d46a;
+  padding: 40px;
+  border-radius: 50%;
 }
 
 .itb-capability {
-    background-color: #F2F3F2;
-    padding: 100px 0;
+  background-color: #f2f3f2;
+  padding: 100px 0;
 }
 
 .itb-capability h3 {
-    text-align: center;
-    font-weight: 700;
-    margin-bottom: 50px;
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 50px;
 }
 
 .itb-capability .col {
-    text-align: center;
-    padding: 10px;
-    background-color: #ff6308;
-    color: #fff;
-    border-radius: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  text-align: center;
+  padding: 10px;
+  background-color: #ff6308;
+  color: #fff;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Fuzzy Bubbles', cursive;
 }
 
-.itb-capability .col h5{
-    font-weight: 700;
-    margin-bottom: 0;
-    margin-left: 15px;
+.itb-capability .col h5 {
+  font-weight: 700;
+  margin-bottom: 0;
+  margin-left: 15px;
 }

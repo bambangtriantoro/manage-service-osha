@@ -5,7 +5,7 @@ import { RiWhatsappLine } from 'react-icons/ri'
 import { useForm } from "react-hook-form";
 import emailjs from '@emailjs/browser'
 import Swal from "sweetalert2";  
-import contactImg from '../../assets/images/Get in touch-bro.png'
+import contactImg from '../../assets/illustration/contact.png'
 import Loading from '../../subcomponents/Loading/Loading' 
 
 const ContactUs = () => {

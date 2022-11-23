@@ -2,7 +2,7 @@ import './ProfessionalService.css'
 import React from 'react'
 import { ContactUs, Footer, NavigationBar } from '../../components'
 import { Col, Container, Row } from 'react-bootstrap'
-import proService from '../../assets/Flaticon/professional-services.png'
+import proService from '../../assets/icon/professional-services.png'
 
 const ProfessionalService = () => {
   return (

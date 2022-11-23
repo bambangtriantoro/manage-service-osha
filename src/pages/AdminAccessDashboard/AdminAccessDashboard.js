@@ -171,7 +171,7 @@ const AdminAccessDashboard = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 AxiosCustom.delete(`/api/applicant/destroy/${id}`)
-                setApplicants(applicants.filter((applicant) => applicant.id !== id))
+                setApplicants(applicants.filter((applicant) => applicant.applicantID !== id))
             }
         })
     }

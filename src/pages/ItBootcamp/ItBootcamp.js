@@ -5,7 +5,7 @@ import { Col, Container, Row } from 'react-bootstrap'
 import { FaJava, FaPhp, FaMobileAlt } from 'react-icons/fa'
 import { DiDotnet } from 'react-icons/di'
 import { SiPowerbi } from 'react-icons/si'
-import itBootcamp from '../../assets/Flaticon/itbootcamp.png'
+import itBootcamp from '../../assets/icon/it-bootcamp.png'
 
 const ItBootcamp = () => {
   return (

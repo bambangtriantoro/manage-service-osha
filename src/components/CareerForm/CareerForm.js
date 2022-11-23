@@ -177,7 +177,7 @@ class CareerForm extends Component {
     })
   };
 
-  addInputCapabilities = async () => {
+  addInputCapability = async () => {
     const lastId = this.state['capabilities'].length>0?this.state['capabilities'][this.state['capabilities'].length - 1].id:0;
     
     if(this.state['capability'] === ""){
@@ -427,6 +427,30 @@ class CareerForm extends Component {
     });
   }
 
+  // Remove Experience
+  removeExperience = async (id) => {
+    Swal.fire({
+      title: 'Remove this experience?',
+      showDenyButton: true,
+      confirmButtonText: 'Yes',
+      confirmButtonColor: '#FF7A00',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        AxiosCustom.delete(`/api/experience/destroy/${id}`)
+        .then((res) => {
+          if(res.data.success === false) {
+            this.HandleClickWarning("Form Error, send CV to email instead.");
+          } else {
+            this.setState({workingexpdata: this.state.workingexpdata.filter((exp) => exp.id !== id)})
+          }
+        },
+        error => {
+          console.error('Error : ',error)
+        });
+      }
+    })
+  }
+
   // Get Capabilties Data
   fetchDataCapabilities = async () => {
     await AxiosCustom.get('/api/capabilities')
@@ -457,6 +481,11 @@ class CareerForm extends Component {
 
     this.fetchDataCapabilities()
   };
+
+  // Remove Capability
+  removeCapability = async () => {
+    this.setState({capabilities: this.state.capabilities.filter((cap, key) => key !== (this.state.capabilities.length-1))})
+  }
 
   // Date Input
   DateField = () => {
@@ -582,7 +611,7 @@ class CareerForm extends Component {
       } else if (field === 'workingdesc') {
         this.addInputJobDesc()
       } else if (field === 'capabilities') {
-        this.addInputCapabilities()
+        this.addInputCapability()
       } else {
         console.log(field+'field is enter pressed')
       }
@@ -754,6 +783,10 @@ class CareerForm extends Component {
                         <th>Working Place</th>
                         <th>Working Period</th>
                         <th>Working Position</th>
+                        {this.state['workingexpdata'].length > 0 
+                          ? <th>Action</th>
+                          : <></>
+                        }
                       </tr>
                     </thead>
                     <tbody>
@@ -765,6 +798,7 @@ class CareerForm extends Component {
                             <td>{item.work_place}</td>
                             <td>{item.work_period}</td>
                             <td>{item.work_position}</td>
+                            <td><Button size="sm" variant='danger' onClick={()=>this.removeExperience(item.id)}>Remove</Button></td>
                           </tr>
                         );
                       })
@@ -921,6 +955,11 @@ class CareerForm extends Component {
                           :<p className="text-muted">Your added capabilities will show here</p>
                         }
                         </td>
+                        {
+                          this.state['capabilities'].length>0 
+                          ? <td><Button size='sm' variant='danger' onClick={this.removeCapability}>Undo</Button></td>
+                          : <></>
+                        }
                       </tr>
                     </tbody>
                   </Table>
@@ -932,7 +971,7 @@ class CareerForm extends Component {
                     onChange={this.handleChange}
                     onKeyDown={e => this.fieldEnterPressed(e, 'capabilities')}
                   />
-                  <Button type="button" className="mt-3 w-100" onClick={()=>this.addInputCapabilities()}> Add Capability </Button>
+                  <Button type="button" className="mt-3 w-100" onClick={()=>this.addInputCapability()}> Add Capability </Button>
                 </Form.Group>
               </div>
 
