@@ -234,14 +234,14 @@ class CareerForm extends Component {
         this.setState({step: 3})
         this.props.scrollToCareerElement()
       } else {
-        this.HandleClickWarning('Please add some another experience')
+        this.HandleClickWarning('Please add at least one experience')
       }
     } else if(this.state['step'] === 3) {
       if(this.state['capabilities'].length > 0){ 
         this.addNewCapability()
         this.props.scrollToCareerElement()
       } else {
-        this.HandleClickWarning('Please add some another capabilities')
+        this.HandleClickWarning('Please add at least one capability')
       }
     } else {
       this.step1.current.style.display = 'block';
